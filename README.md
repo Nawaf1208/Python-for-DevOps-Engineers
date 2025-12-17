@@ -599,3 +599,16 @@
 -     `else:`
 -       `high = mid - 1`
 -     `return -1`
+
+## Files
+
+**_61.How to write to a file?_**
+
+- `with open('file.txt', 'w') as file:`
+-   `file.write("My insightful comment")`
+
+**_62.Sum all the integers in a given file_**
+
+- def sum_file_integers(filename):
+  - with open(filename, 'r') as f:
+    - return sum(int(w) for line in f for w in line.split() if w.isdigit())
