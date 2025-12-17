@@ -551,3 +551,51 @@
 
 - `# One liner way (Using list comprehension)`
 - `set([food for bro in x for food in bro['food']])`
+
+## Dictionaries
+
+**_54.How to create a dictionary?_**
+
+- `my_dict = dict(x=1, y=2) OR my_dict = {'x': 1, 'y': 2} OR my_dict = dict([('x', 1), ('y', 2)])`
+
+**_55.How to remove a key from a dictionary?_**
+
+- `del my_dict['some_key'] you can also use `my_dict.pop('some_key')` which returns the value of the key.`
+
+**_56.How to sort a dictionary by values?_**
+
+- `{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}`
+
+**_57.How to sort a dictionary by keys?_**
+
+- `dict(sorted(some_dictionary.items()))`
+
+**_58.How to merge two dictionaries?_**
+
+- `some_dict1.update(some_dict2)`
+
+**_59.Convert the string "a.b.c" to the dictionary {'a': {'b': {'c': 1}}}_**
+
+- `output = {}`
+- `string = "a.b.c"`
+- `path = string.split('.')`
+- `target = reduce(lambda d, k: d.setdefault(k, {}), path[:-1], output)`
+- `target[path[-1]] = 1`
+- `print(output)`
+
+## Common Algorithms Implementation
+
+**_60.Can you implement "binary search" in Python?_**
+
+- `def binary_search(arr, target):`
+-   `low, high = 0, len(arr) - 1`
+
+-   `while low <= high:`
+-     `mid= (low + high) // 2`
+-     `if arr[mid] == target:`
+-       `return mid`
+-     `elif arr[mid] < target:`
+-       `low = mid + 1`
+-     `else:`
+-       `high = mid - 1`
+-     `return -1`
