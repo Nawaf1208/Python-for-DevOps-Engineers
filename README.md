@@ -276,7 +276,7 @@
 
 **_25.What is Lambda? How is it used?_**
 
-- A lambda expression is an 'anonymous' function, the difference from a normal defined function using the keyword `def`` is the syntax and usage.
+- A lambda expression is an 'anonymous' function, the difference from a normal defined function using the keyword `def` is the syntax and usage.
 
 - The syntax is:
 
@@ -297,3 +297,55 @@
 
 - Generally it is considered a bad practice under PEP 8 to assign a lambda expresion, they are meant to be used as parameters and inside of other defined functions.
 
+## Properties
+
+**_26.Are there private variables in Python? How would you make an attribute of a class, private?_**
+
+- Technically, no. Python does not have strict "private" variables like Java or C++. All attributes are technically accessible.
+
+- However, Python uses naming conventions to signal intent:
+  - 1.**Protected (Internal Use)**: Prefix an attribute with a single underscore `_`
+    - `self._value = 10`
+  - 2.**Private (Name Mangling)**: Prefix an attribute with a double underscore `__`
+    - `self.__secret = 42`
+   
+**_27.Explain the following:_**
+- 1.**_getter_** -> The Getter retrieves the value of a private attribute.
+  - `@property`
+  - Allows read-access and data formatting before returning.
+- 2.**_setter_** -> The Setter updates the value of an attribute.
+  - `@<attribute_name>.setter`
+  - Enables validation (e.g., ensuring a price isn't negative) before saving data.
+- 3.**_deleter_** -> The Deleter handles the cleanup when an attribute is deleted using `del`
+  - `@<attribute_name>.deleter`
+  - Useful for logging deletions or resetting related values.
+
+**_28.Explain what is @property_**
+
+- The `@property` decorator is a built-in tool that turns a class method into a "virtual" attribute. It allows you to access a method's return value using simple dot notation (e.g., `obj.price`) instead of calling it like a function (`obj.price()`). This is primarily used to implement encapsulation: you can start with a simple public attribute and later wrap it in logic (like validation or logging) without changing the external API of your class.
+
+**_29.How do you swap values between two variables?_**
+
+- `x, y = y, x`
+
+**_30.Explain the following object's magic variables:_**
+- **_dict_** - A magic attribute that stores an object's writable attributes in a dictionary format.
+  - It maps attribute names (keys) to their current values (values).
+ 
+**_31.Write a function to return the sum of one or more numbers. The user will decide how many numbers to use_**
+
+- First you ask the user for the amount of numbers that will be use. Use a while loop that runs until amount_of_numbers becomes 0 through subtracting amount_of_numbers by one each loop. In the while loop you want ask the user for a number which will be added a variable each time the loop runs.
+
+- `def return_sum():`
+-   `amount_of_numbers = int(input("How many numbers? "))`
+-   `total_sum = 0`
+-   `while amount_of_numbers != 0:`
+-     `numm = int(input("Input a number. "))`
+-     `total_sum += num`
+-     `amount_of_numbers -= 1`
+-   `return total_sum`
+
+**_32.Print the average of [2, 5, 6]. It should be rounded to 3 decimal places_**
+
+- `li = [2, 5, 6]`
+- `print("{0:.3f}".format(sum(li)/len(li)))`
