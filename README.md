@@ -205,4 +205,95 @@
 
 - False
 
+## Built-in Functions
+
+**_19.Explain the following built-in functions (their purpose + use case example):_**
+- **_repr_**
+- **_any_**
+- **_all_**
+
+- 1.`repr()`
+  - Returns a "printable" string representation of an object that should look like a valid Python expression (used for debugging/logging).
+  - Seeing the "true" value of a variable (e.g., distinguishing between a string and its content).
+    - `s = "Hello"`
+    - `print(repr(s))`
+    - `# Output: 'Hello'`
+   
+- 2.`any()`
+  - Returns `True` if at least one element in an iterable is true. If the iterable is empty, it returns `False`.
+  - Checking if any item in a list meets a condition.
+    - `results = [False, 0, "Exists", False]`
+    - `print(any(results))`
+    - `# Output: True`
+   
+- 3.`all()`
+  - Returns `True` if all elements in an iterable are true (or if the iterable is empty). 
+  - Ensuring every requirement in a checklist is completed.
+    - `scores = [100, 95, 88, 92]`
+    - `print(all(s > 80 for s in scores))`
+    - `# Output: True`
+
+**_20.What is the difference between repr function and str?_**
+
+- **Reconstruction**: Ideally, `repr()` should return a string that looks like the code used to create the object (so `eval(repr(obj)) == obj`).
+
+- **Fallback Behavior**: If you don't define `__str__` in a class, Python will use `__repr__` as a backup. However, it does not work the other way around.
+
+- **Containers**: When you print a list or dictionary, Python uses `repr()` for the items inside, even if you called `str()` on the container itself.
+
+**_21.What is the __call__ method?_**
+
+- It is used to emulate callable objects. It allows a class instance to be called as a function.
+
+  - Example code
+    - `class Foo:`
+    -   `def __init__(self: object) ->  None:`
+    -     `pass`
+    -   `def __call__(self: object) -> None:`
+    -     `print("Called!")`
+
+    - `f = Foo()`
+    - `f()`
+  - Result:
+    - `Called!`
+
+**_22.Do classes has the __call__ method as well? What for?_**
+
+- Yes, classes can have a `__call__` method. Defining `__call__` allows an instance of a class to be called like a regular function (using parentheses). It essentially turns an object into a callable.
+
+- **Maintaining State**: To create "functions" that remember data between calls without using global variables.
+- **Functional Programming**: When you need an object to behave like a function (e.g., for decorators or callbacks) but still need the structure of a class.
+
+**_23.What _ is used for in Python?_**
+
+- 1.Translation lookup in i18n
+- 2.Hold the result of the last executed expression or statement in the interactive interpreter.
+- 3.As a general purpose "throwaway" variable name. For example: x, y, _ = get_data() (x and y are used but since we don't care about third variable, we "threw it away").
+
+**_24.Explain what is GIL_**
+
+- Python Global Interpreter Lock (GIL) is a type of process lock which is used by python whenever it deals with processes. Generally, Python only uses only one thread to execute the set of written statements. This means that in python only one thread will be executed at a time.
+
+**_25.What is Lambda? How is it used?_**
+
+- A lambda expression is an 'anonymous' function, the difference from a normal defined function using the keyword `def`` is the syntax and usage.
+
+- The syntax is:
+
+- `lambda[parameters]: [expresion]`
+
+- Examples:
+  - A lambda function add 10 with any argument passed.
+    - `x = lambda a: a + 10`
+    - `print(x(10))`
+
+  - An addition function
+    - `addition = lambda x, y: x + y`
+    - `print(addition(10, 20))`
+
+  - Squaring function
+    - `square = lambda x : x ** 2`
+    - `print(square(5))`
+
+- Generally it is considered a bad practice under PEP 8 to assign a lambda expresion, they are meant to be used as parameters and inside of other defined functions.
 
