@@ -349,3 +349,205 @@
 
 - `li = [2, 5, 6]`
 - `print("{0:.3f}".format(sum(li)/len(li)))`
+
+## Lists
+
+**_33.What is a tuple in Python? What is it used for?_**
+
+- A tuple is a built-in data type in Python. It's used for storing multiple items in a single variable.
+
+**_34.List, like a tuple, is also used for storing multiple items. What is then, the difference between a tuple and a list?_**
+
+- List, as opposed to a tuple, is a mutable data type. It means we can modify it and at items to it.
+
+**_35.How to add the number 2 to the list `x = [1, 2, 3]`_**
+
+- `x.append(2)`
+
+**_36.How to get the last element of a list?_**
+
+- `some_list[-1]`
+
+**_37.How to add the items of `[1, 2, 3]` to the list `[4, 5, 6]`?_**
+
+- `x = [4, 5, 6]` `x.extend([1, 2, 3])`
+- Don't use append unless you would like the list as one item.
+
+**_38.How to remove the first 3 items from a list?_**
+
+- `my_list[0:3] = []`
+
+**_39.How to insert an item to the beginning of a list? What about two items?_**
+
+- One item:
+  - `numbers = [1, 2, 3, 4, 5]`
+  - `numbers.insert(0, 0)`
+  - `print(numbers)`
+
+- Multiple items or list:
+  - `numbers_1 = [2, 3, 4, 5]`
+  - `numbers_2 = [0, 1]`
+  - `numbers_1 = numbers_2 + numbers_1`
+  - `print(numbers_1)`
+ 
+**_40.How to sort list by the length of items?_**
+
+- `sorted_li = sorted(li, key=len)`
+
+- Or without creating a new list:
+  - `li.sort(key=len)`
+ 
+**_41.Do you know what is the difference between list.sort() and sorted(list)?_**
+
+- `sorted(list)` will return a new list (original list doesn't change)
+- `list.sort()` will return None but the list is change in-place
+- `sorted()` works on any iterable (Dictionaries, Strings, ...)
+- `list.sort()` is faster than sorted(list) in case of Lists
+
+**_42.Convert every string to an integer: `[['1', '2', '3'], ['4', '5', '6']]`_**
+
+- `nested_li = [['1', '2', '3'], ['4', '5', '6']]`
+- `[[int(x) for x in li] for li in nested_li]`
+
+**_43.How to merge two sorted lists into one sorted list?_**
+
+- `sorted(li1 + li2)`
+
+- Another way:
+
+- `i, j = 0`
+- `merged_li = []`
+
+- `while i < len(li1) and j < len(li2):`
+-   `if li1[i] < li2[j]:`
+-     `merged_li.append(li1[i])`
+-     `i += 1`
+-   `else:`
+-     `merged_li.append(li2[j])`
+-     `j += 1`
+
+**_44.How to check if all the elements in a given lists are unique? so [1, 2, 3] is unique but [1, 1, 2, 3] is not unique because 1 exists twice_**
+
+- There are many ways of solving this problem:
+- `# Note: :list and -> bool are just python typings, they are not needed for the correct execution of the algorithm.`
+
+- Taking advantage of sets and len:
+  - `def is_unique(l:list) -> bool:`
+  - `return len(set(l)) == len(l)`
+
+- This one is can be seen used in other programming languages.
+  - `def is_unique2(l:list) -> bool:`
+    - `seen = []`
+
+    - `for i in l:`
+      - `if i in seen:`
+        - `return False`
+      - `seen.append(i)`
+    - `return True`
+
+- Here we just count and make sure every element is just repeated once.
+  - `def is_unique3(l:list) -> bool:`
+  -   `for i in l:`
+  -     `if l.count(i) > 1:`
+  -       `return False`
+  -   `return True`
+
+- This one might look more convulated but hey, one liners.
+
+  - `def is_unique4(l:list) -> bool:`
+  -   `return all(map(lambda x: l.count(x) < 2, l))`
+
+**_45.You have the following function_**
+- **_def my_func(li = []):_**
+- **_li.append("hmm")_**
+- **_print(li)_**
+
+- If we call it 3 times, what would be the result each call?
+  - ['hmm']
+  - ['hmm', 'hmm']
+  - ['hmm', 'hmm', 'hmm']
+ 
+**_46.How to iterate over a list?_**
+
+- `for item in some_list:`
+-   `print(item)`
+
+**_47.How to iterate over a list with indexes?_**
+
+- `for i, item in enumerate(some_list):`
+-   `print(i)`
+
+**_48.How to start list iteration from 2nd index?_**
+
+- Using range like this
+
+  - `for i in range(1, len(some_list)):`
+  -   `some_list[i]`
+
+- Another way is using slicing
+  - `for i in some_list[1:]:`
+ 
+**_49.How to iterate over a list in reverse order?_**
+
+- Method 1
+  - `for i in reversed(li):`
+  -   `...`
+
+- Method 2
+  - `n = len(li) - 1`
+  - `while n > 0:`
+    - `...`
+    - `n -= 1`
+   
+**_50.Sort a list of lists by the second item of each nested list_**
+
+- `li = [[1, 4], [2, 1], [3, 9], [4, 2], [4, 5]]`
+- `sorted(li, key=lambda l: l[1])`
+
+- or
+
+- `li.sort(key=lambda l: l[1)`
+
+**_51.Combine [1, 2, 3] and ['x', 'y', 'z'] so the result is [(1, 'x'), (2, 'y'), (3, 'z')]_**
+
+- `nums = [1, 2, 3]`
+- `letters = ['x', 'y', 'z']`
+
+- `list(zip(nums, letters))`
+
+**_52.What is List Comprehension? Is it better than a typical loop? Why? Can you demonstrate how to use it?_**
+
+- List comprehensions provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.
+
+- It's better because they're compact, faster and have better readability.
+
+  - For loop:
+    - `number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]`
+    - `odd_numbers = []`
+    - `for number_list in number_lists:`
+    -   `for number in number_list:`
+    -     `ifnumber % 2 == 0:`
+    -       `odd_numbers.append(number)`
+    - `print(odd_numbers)`
+
+  - List comprehesion:
+    - `number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]`
+    - `odd_numbers = [number for number_list in number_lists for number in number_list if number % 2 == 0]`
+    - `print(odd_numbers)`
+   
+**_53.You have the following list: [{'name': 'Mario', 'food': ['mushrooms', 'goombas']}, {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}] Extract all type of foods. Final output should be: {'mushrooms', 'goombas', 'turtles'}_**
+
+- `brothers_menu =  \`
+- `[{'name': 'Mario', 'food': ['mushrooms', 'goombas']}, {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}]`
+
+- `# "Classic" Way`
+- `def get_food(brothers_menu) -> set:`
+-   `temp = []`
+
+-   `for brother in brothers_menu:`
+-     `for food in brother['food']:`
+-       `temp.append(food)`
+-   `return set(temp)`
+
+- `# One liner way (Using list comprehension)`
+- `set([food for bro in x for food in bro['food']])`
