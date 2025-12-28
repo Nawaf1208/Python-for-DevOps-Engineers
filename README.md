@@ -725,3 +725,121 @@
 - `with open('server.log', 'r') as file:`
   - `for line in file:`
     - `found_ips.extend(re.findall(ip_pattern, line))`
+
+## Strings
+
+**_77.Find the first repeated character in a string_**
+
+- While you iterate through the characters, store them in a dictionary and check for every character whether it's already in the dictionary.
+
+- `def firstRepeatedCharacter(str):`
+  - `chars = {}`
+  - `for ch in str:`
+    - `if ch in chars:`
+      - `return ch`
+    - `else:`
+      - `chars[ch] = 0`
+     
+**_78.How to extract the unique characters from a string? for example given the input "itssssssameeeemarioooooo" the output will be "mrtisaoe"_**
+
+- `x = "itssssssameeeemarioooooo"`
+- `y = ''.join(set(x))`
+
+**_79.Find all the permutations of a given string_**
+
+- `def permute_string(string):`
+
+  - `if len(string) == 1:`
+    - `return [string]`
+
+  - `permutations = []`
+  - `for i in range(len(string)):`
+    - `swaps = permute_string(string[:i] + string[(i+1):])`
+    - `for swap in swaps:`
+      - `permutations.append(string[i] + swap)`
+
+  - `return permutations`
+
+- `print(permute_string("abc"))`
+
+**_80.How to check if a string contains a sub string?_**
+
+- `text = "Hello, Luigi!"`
+
+- `if "Luigi" in text:`
+  - `print("Found it!")`
+ 
+**_81.Find the frequency of each character in string_**
+
+- `from collections import Counter`
+
+- `text = "banana"`
+- `frequency = Counter(text)`
+
+- `print(frequency)`
+
+**_82.Count the number of spaces in a string_**
+
+- You can use the "count" method like this:
+  - `ImAString.count(" ")`
+ 
+**_83.Given a string, find the N most repeated words_**
+
+- `import re`
+- `from collections import Counter`
+
+- `text = "apple banana apple cherry banana apple"`
+- `n = 2`
+
+- `words = re.findall(r'\w+', text.lower())`
+
+- `most_common = Counter(words).most_common(n)`
+
+- `print(most_common)`
+
+**_84.Given the string (which represents a matrix) "1 2 3\n4 5 6\n7 8 9" create rows and colums variables (should contain integers, not strings)_**
+
+- `matrix_str = "1 2 3\n4 5 6\n7 8 9"`
+
+- `rows = [[int(x) for x in line.split()] for line in matrix_str.split('\n')]`
+
+- `cols = list(zip(*rows))`
+
+- `print(f"Rows: {rows}")`
+- `print(f"Cols: {cols}")`
+
+**_85.What is the result of each of the following?_**
+- **_`', '.join(["One", "Two", "Three"])`_**
+- **_`" ".join("welladsadgadoneadsadga".split("adsadga")[:2])`_**
+- **_`"".join(["c", "t", "o", "a", "o", "q", "l"])[0::2]`_**
+
+- `'One, Two, Three'`
+- `'well done'`
+- `'cool'`
+
+**_86.If `x = "pizza"`, what would be the result of `x[::-1]`?_**
+
+- It will reverse the string, so x would be equal to `azzip`.
+
+**_87.Reverse each word in a string (while keeping the order)_**
+
+- `text = "Hello Luigi"`
+
+- `result = " ".join(word[::-1] for word in text.split())`
+
+- `print(result)`
+
+**_88.What is the output of the following code: `"".join(["a", "h", "m", "a", "h", "a", "n", "q", "r", "l", "o", "i", "f", "o", "o"])[2::3]`_**
+
+- mario
+
+## Iterators
+
+**_89.What is an iterator?_**
+
+- An iterator is an object that allows you to traverse through a collection (like a list) one element at a time. In Python, it is any object that implements the Iterator Protocol.
+
+- The Iterator Protocol
+- An object is an iterator if it has these two methods:
+  - `__iter__()`: Returns the iterator object itself.
+  - `__next__()`: Returns the next value. Raises StopIteration when no items are left.
