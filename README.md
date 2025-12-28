@@ -656,7 +656,7 @@
 - `with open('file.json', 'w') as f:`
   - `f.write(json.dumps(dict_var))`
 
-## Python OS
+## OS
 
 **_69.How to print current working directory?_**
 
@@ -709,7 +709,7 @@
 
 - `shutil.rmtree('/path/to/directory')`
 
-## Python Regex
+## Regex
 
 **_75.How do you perform regular expressions related operations in Python? (match patterns, substitute strings, etc.)_**
 
