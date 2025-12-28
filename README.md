@@ -883,3 +883,65 @@
   **_- `print(i)`_**
 
 - No output
+
+**_94.What is `yield`? When would you use it?_**
+
+- `yield` is a keyword used in Python functions to turn them into generators. Unlike `return`, which terminates a function and sends back a final value, `yield` pauses the function’s execution, saves its local state (variable values and instruction pointer), and emits a value to the caller. When the generator is iterated again, execution resumes immediately after the `yield` statement as if it had never stopped.
+
+- You use `yield` when you need to process large datasets or streams of data that are too big to fit in memory. It is the best choice for "lazy" data generation, such as reading a massive log file line-by-line, calculating an infinite sequence, or performing complex data transformations where you only need one item at a time. This approach significantly reduces RAM usage and can improve performance by starting to process data before the entire collection is fully loaded or calculated.
+
+**_95.Explain the following types of methods and how to use them:_**
+- **_Static method_**
+- **_Class method_**
+- **_instance method_**
+
+- Static methods are defined with the `@staticmethod` decorator and do not take a mandatory first argument (neither `self` nor `cls`). They behave like regular functions but reside within the class's namespace for organizational purposes. You use them when a task is logically related to the class but doesn't need to access or modify any class or instance data, such as a utility function that performs a specific calculation or validates a string.
+
+- Class methods are marked with the `@classmethod` decorator and take `cls` as the first argument, pointing to the class itself rather than an instance. Because they have access to the class state, they can modify variables that apply to all instances of that class. They are most commonly used as "factory methods" to create class instances using different input formats or to maintain state that is shared across every object created from that class.
+
+- Instance methods are the most common type. They take `self` as the first argument, which points to the specific object instance. These methods can freely access and modify both instance-specific data (attributes) and class-level data. You use them for behaviors that require knowledge of a specific object's state, such as updating a user's profile or calculating a result based on an object's unique properties.
+
+**_96.How to reverse a list?_**
+
+- `nums = [1, 2, 3]`
+- `nums.reverse()`
+- `print(nums)`
+
+**_97.How to combine list of strings into one string with spaces between the strings_**
+
+- `words = ["Python", "is", "awesome"]`
+
+- `result = " ".join(words)`
+
+- `print(result)`
+
+**_100.You have the following list of nested lists: [['Mario', 90], ['Geralt', 82], ['Gordon', 88]] How to sort the list by the numbers in the nested lists?_**
+
+- One way is:
+
+- `the_list.sort(key=lambda x: x[1])`
+
+**_101.Explain the following:_**
+- **_`zip()`_**
+- **_`map()`_**
+- **_`filter()`_**
+
+- The `zip()` function takes multiple iterables (like lists or tuples) and aggregates them into a single iterator of tuples. It pairs the first elements of each input together, then the second, and so on, stopping as soon as the shortest iterable is exhausted. This is commonly used when you need to iterate through two related lists simultaneously, such as matching a list of usernames with a list of user IDs.
+
+- The `map()` function applies a specific function to every item in an iterable and returns an iterator of the results. Instead of writing a manual `for` loop to transform data, you can use `map` to perform operations like converting a list of strings to integers or squaring every number in a sequence. It is a cornerstone of functional programming in Python, emphasizing concise and readable data transformation.
+
+- The `filter()` function constructs an iterator from elements of an iterable for which a specific function returns `True`. It acts as a gatekeeper, allowing you to extract only the data that meets a certain criteria—such as filtering out odd numbers from a list or removing empty strings from a collection of text. Like `map` and `zip`, it uses lazy evaluation, meaning it only processes items as you loop through them, saving memory.
+
+## Slicing
+
+**_101.For the following slicing exercises, assume you have the following list: my_list = [8, 2, 1, 10, 5, 4, 3, 9]_**
+- **_What is the result of `my_list[0:4]`?_** -> `[8, 2, 1, 10]`
+- **_What is the result of `my_list[5:6]`?_** -> `[4]`
+- **_What is the result of `my_list[5:5]`?_** -> `[]`
+- **_What is the result of `my_list[::-1]`?_**-> `[9,3,4,5,10,1,2,8]`
+- **_What is the result of `my_list[::3]`?_** -> `[8,10,3]`
+- **_What is the result of `my_list[2:]`?_**  -> `[1,10,5,4,3,9]`
+- **_What is the result of `my_list[:3]`?_**  -> `[8,2,1]`
+
+
+
