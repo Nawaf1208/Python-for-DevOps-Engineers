@@ -656,4 +656,72 @@
 - `with open('file.json', 'w') as f:`
   - `f.write(json.dumps(dict_var))`
 
+## Python OS
 
+**_69.How to print current working directory?_**
+
+- `import os`
+- `print(os.getcwd())`
+
+**_70.Given the path `/dir1/dir2/file1` print the file name (file1)_**
+
+- `import os`
+
+- `print(os.path.basename('/dir1/dir2/file1'))`
+
+# Another way
+- `print(os.path.split('/dir1/dir2/file1')[1])`
+
+**_71.Given the path `/dir1/dir2/file1`_**
+- **_1. Print the path without the file name (/dir1/dir2)_**
+- **_2. Print the name of the directory where the file resides (dir2)_**
+
+- `import os`
+- ## Part 1.
+- # os.path.dirname gives path removing the end component
+- `dirpath = os.path.dirname('/dir1/dir2/file1')`
+- `print(dirpath)`
+
+- ## Part 2.
+- `print(os.path.basename(dirpath))`
+
+**_72.How do you execute shell commands using Python?_**
+
+- `import subprocess`
+
+- # Simple command
+- `subprocess.run(["ls", "-l"])`
+
+- # Capture output to a variable
+- `result = subprocess.run(["echo", "Hello World"], capture_output=True, text=True)`
+- `print(result.stdout)`
+
+**_73.How do you join path components? for example `/home` and `/luig` will result in `/home/luigi`_**
+
+- `from pathlib import Path`
+
+- `path = Path("/home") / "luigi"`
+- `print(path)`
+
+**_74.How do you remove non-empty directory?_**
+
+- `import shutil`
+
+- `shutil.rmtree('/path/to/directory')`
+
+## Python Regex
+
+**_75.How do you perform regular expressions related operations in Python? (match patterns, substitute strings, etc.)_**
+
+- Using the re module
+
+**_76.How to find all the IP addresses in a variable? How to find them in a file?_**
+
+- `import re`
+
+- `ip_pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'`
+- `found_ips = []`
+
+- `with open('server.log', 'r') as file:`
+  - `for line in file:`
+    - `found_ips.extend(re.findall(ip_pattern, line))`
