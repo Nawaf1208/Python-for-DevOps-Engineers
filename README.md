@@ -943,5 +943,67 @@
 - **_What is the result of `my_list[2:]`?_**  -> `[1,10,5,4,3,9]`
 - **_What is the result of `my_list[:3]`?_**  -> `[8,2,1]`
 
+## Debugging
 
+**_102.How do you debug Python code?_**
 
+- `pdb`
+
+**_103.How to check how much time it took to execute a certain script or block of code?_**
+
+- `time`
+
+**_104.What empty return returns?_**
+
+- It returns a None object.
+
+**_105.How to improve the following block of code?_**
+- **_`li = []`_**
+- **_`for i in range(1, 10):`_**
+  - **_`li.append(i)`_**
+
+- `[i for i in range(1, 10)]`
+
+**_106.Given the following function_**
+- **_`def is_int(num):`_**
+  - **_`if isinstance(num, int):`_**
+    - **_`print('Yes')`_**
+  - **_`else:`_**
+    - **_`print('No')`_**
+- **_What would be the result of is_int(2) and is_int(False)?_**
+
+- `is_int(2)` results in: `Yes`
+
+- `is_int(False)` results in: `No`
+
+## Linked List
+
+**_107.Can you implement a linked list in Python?_**
+
+- The reason we need to implement in the first place, it's because a linked list isn't part of Python standard library.
+
+- To implement a linked list, we have to implement two structures: The linked list itself and a node which is used by the linked list.
+
+**_108.Add a method to the Linked List class to traverse (print every node's data) the linked list_**
+
+- `def print_list(self): node = self.head while(node): print(node.data) node = node.next`
+
+**_109.Write a method to that will return a boolean based on whether there is a loop in a linked list or not_**
+
+- Let's use the Floyd's Cycle-Finding algorithm:
+
+- `def loop_exists(self):`
+  - `one_step_p = self.head`
+  - `two_steps_p = self.head`
+  - `while(one_step_p and two_steps_p and two_steps_p.next):`
+    - `one_step_p = self.head.next`
+    - `two_step_p = self.head.next.next`
+    - `if (one_step_p == two_steps_p):`
+      - `return True`
+  - `return False`
+ 
+## Stack
+
+**_110.Implement Stack in Python_**
+
+A stack follows the Last-In, First-Out (LIFO) principle and is most efficiently implemented in Python using a list with the `.append()` method to "push" elements and the `.pop()` method to "pop" the top element. For high-performance applications or multi-threaded environments, using `collections.deque` is preferred over a standard list because it provides $O(1)$ time complexity for additions and removals from both ends, whereas a list can suffer from $O(n)$ reallocations. To create a robust stack, you can wrap these operations in a class that provides helper methods like `peek()` to view the top item without removing it, `is_empty()` to check for elements, and `size()` to return the stack's length.
