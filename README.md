@@ -843,3 +843,43 @@
 - An object is an iterator if it has these two methods:
   - `__iter__()`: Returns the iterator object itself.
   - `__next__()`: Returns the next value. Raises StopIteration when no items are left.
+
+## Misc
+
+**_90.Explain data serialization and how do you perform it with Python_**
+
+- Data serialization is the process of converting complex objects (like lists, dictionaries, or classes) into a byte stream or string format that can be easily stored in a file or transmitted over a network. Deserialization is the reverse process.
+
+- JSON
+  - `import json`
+  - `data = {"id": 1, "name": "Luigi"}`
+  - `serialized = json.dumps(data)`
+
+- Pickle
+  - `import pickle`
+  - `serialized = pickle.dumps(data)`
+ 
+**_91.How do you handle argument parsing in Python?_**
+
+- `import argparse`
+
+- `parser = argparse.ArgumentParser(description="A simple script")`
+
+- `parser.add_argument("name", help="Your name")`  
+- `parser.add_argument("-a", "--age", type=int, help="Age")`
+
+- `args = parser.parse_args()`
+
+- `print(f"Hello {args.name}, you are {args.age}")`
+
+**_92.What is a generator? Why using generators?_**
+
+- A generator is a special type of iterator defined by a function that uses the `yield` keyword instead of `return`. When called, it doesn't execute the code immediately; instead, it returns a generator object that produces values one at a time on demand. Each time `yield` is reached, the function's state is "frozen," allowing it to resume exactly where it left off during the next iteration.
+
+- The primary reason to use generators is memory efficiency. Unlike lists, which store all elements in RAM simultaneously, generators use lazy evaluation, calculating each item only when requested. This makes them ideal for processing massive datasets, reading large files, or representing infinite sequences where storing the entire collection would be impossible.
+
+**_93.What would be the output of the following block?_**
+**_- `for i in range(3, 3):`_**
+  **_- `print(i)`_**
+
+- No output
