@@ -609,6 +609,47 @@
 
 **_62.Sum all the integers in a given file_**
 
-- def sum_file_integers(filename):
-  - with open(filename, 'r') as f:
-    - return sum(int(w) for line in f for w in line.split() if w.isdigit())
+- `def sum_file_integers(filename):`
+  - `with open(filename, 'r') as f:`
+    - `return sum(int(w) for line in f for w in line.split() if w.isdigit())`
+
+**_63.Print a random line of a given file_**
+
+- `import random`
+- `with open('file.txt', 'r') as f:`
+  - `lines = f.readlines()`
+  - `print(random.choice(lines).strip())`
+ 
+**_64.Print every 3rd line of a given file_**
+
+- `from itertools import islice`
+- `with open('file.txt', 'r') as f:`
+  - `for line in islice(f, 2, None, 3):`
+    - `print(line.strip())`
+   
+**_65.Print the number of lines in a given file_**
+
+- `with open('file.txt', 'r') as f:`
+  - `print(len(f.readlines()))`
+ 
+**_66.Print the number of of words in a given file_**
+
+- `print(len(open('file.txt').read().split()))`
+
+**_67.Can you write a function which will print all the file in a given directory? including sub-directories_**
+
+- `from pathlib import Path`
+- `def print_files(directory):`
+  - `for path in Path(directory).rglob('*'):`
+    - `if path.is_file():`
+      - `print(path)`
+
+- `print_files('your_directory_path')`
+
+**_68.Write a dictionary (variable) to a file_**
+
+- `import json`
+- `with open('file.json', 'w') as f:`
+  - `f.write(json.dumps(dict_var))`
+
+
