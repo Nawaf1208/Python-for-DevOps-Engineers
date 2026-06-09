@@ -6,22 +6,44 @@
 
 ## Hello World
 
-**_1.How to print "Hello World"?_**
+<details>
+<summary><b><i>1.How to print "Hello World"?</i></b></summary>
 
-- `print("Hello World")`
+$\color{green}{\text{Answer}}$
 
-**_2.How to print "Hello Amazing" and then print "World" on the same line? (to clarify, you should use two print statements)_**
+`print("Hello World")`
 
-- `print("Hello Amazing", end=" ")`
-- `print("World")`
+</details>
 
-**_3.The following program reads two numbers from the user_**
-  - **_x = int(input())_**
-  - **_y = int(input())_**
-- **_Print the sum and the difference between the numbers_**
+<details>
+<summary><b><i>2.How to print "Hello Amazing" and then print "World" on the same line? (to clarify, you should use two print statements)</i></b></summary>
 
-- `print(x + y)`
-- `print(x - y)`
+$\color{green}{\text{Answer}}$
+
+```Python
+print("Hello Amazing", end=" ")
+print("World")
+```
+
+</details>
+
+<details>
+<summary><b><i>3.The following program reads two numbers from the user</i></b></summary>
+  
+```Python
+x = int(input())
+y = int(input())
+```
+
+Print the sum and the difference between the numbers
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+`print(x + y)`
+
+`print(x - y)`
 
 ## Conditionals
 
