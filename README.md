@@ -45,6 +45,8 @@ $\color{green}{\text{Answer}}$
 
 `print(x - y)`
 
+</details>
+
 ## Conditionals
 
 **_4.Read a number from the user and check whether it's even. If it's even, print "yay". If it's not, print "nay"_**
