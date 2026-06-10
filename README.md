@@ -344,31 +344,41 @@ False
 
 ## Built-in Functions
 
-**_19.Explain the following built-in functions (their purpose + use case example):_**
-- **_repr_**
-- **_any_**
-- **_all_**
+<details>
+<summary><b><i>19.Explain the following built-in functions (their purpose + use case example):
+- repr
+- any
+- all
+</i></b></summary>
 
-- 1.`repr()`
+1.`repr()`
   - Returns a "printable" string representation of an object that should look like a valid Python expression (used for debugging/logging).
   - Seeing the "true" value of a variable (e.g., distinguishing between a string and its content).
-    - `s = "Hello"`
-    - `print(repr(s))`
-    - `# Output: 'Hello'`
+    ```Python
+    s = "Hello"
+    print(repr(s))
+    # Output: 'Hello'
+    ```
    
-- 2.`any()`
+2.`any()`
   - Returns `True` if at least one element in an iterable is true. If the iterable is empty, it returns `False`.
   - Checking if any item in a list meets a condition.
-    - `results = [False, 0, "Exists", False]`
-    - `print(any(results))`
-    - `# Output: True`
+    ```Python
+    results = [False, 0, "Exists", False]
+    print(any(results))
+    # Output: True
+    ```
    
-- 3.`all()`
+3.`all()`
   - Returns `True` if all elements in an iterable are true (or if the iterable is empty). 
   - Ensuring every requirement in a checklist is completed.
-    - `scores = [100, 95, 88, 92]`
-    - `print(all(s > 80 for s in scores))`
-    - `# Output: True`
+    ```Python
+    scores = [100, 95, 88, 92]
+    print(all(s > 80 for s in scores))
+    # Output: True
+    ```
+
+</details>
 
 **_20.What is the difference between repr function and str?_**
 
