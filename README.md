@@ -11,7 +11,9 @@
 
 $\color{green}{\text{Answer}}$
 
-`print("Hello World")`
+```Python
+print("Hello World")
+```
 
 </details>
 
@@ -28,7 +30,7 @@ print("World")
 </details>
 
 <details>
-<summary><b><i>3.The following program reads two numbers from the user</i></b></summary>
+<summary><b><i>3.The following program reads two numbers from the user.
   
 ```Python
 x = int(input())
@@ -49,27 +51,48 @@ $\color{green}{\text{Answer}}$
 
 ## Conditionals
 
-**_4.Read a number from the user and check whether it's even. If it's even, print "yay". If it's not, print "nay"_**
+<details>
+<summary><b><i>4.Read a number from the user and check whether it's even. If it's even, print "yay". If it's not, print "nay"</i></b></summary>
 
-- `x = int(input())`
+$\color{green}{\text{Answer}}$
 
-- `if x % 2 == 0:`
--   `print("yay")`
-- `else:`
--   `print("nay")`
+```Python
+x = int(input())
+
+if x % 2 == 0:
+  print("yay")
+else:
+  print("nay")
+```
+
+</details>
 
 ## Loops
 
-**_5.Given an integer (n), print all the numbers between 0 and n (including n)_**
+<details>
+<summary><b><i>5.Given an integer (n), print all the numbers between 0 and n (including n)</i></b></summary>
 
-- `for i in range(n + 1):`
--   `print(i)`
+$\color{green}{\text{Answer}}$
 
-**_6.Given an integer (n), print all the numbers between 0 and n (including n) that are even_**
+```Python
+for i in range(n + 1):
+  print(i)
+```
 
-- `for i in range(n + 1):`
--  `if i % 2 == 0:`
--    `print(i)`
+</details>
+
+<details>
+<summary><b><i>6.Given an integer (n), print all the numbers between 0 and n (including n) that are even</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+for i in range(n + 1):
+  if i % 2 == 0:
+    print(i)
+```
+
+</details>
 
 ## Classes
 
