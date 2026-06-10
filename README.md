@@ -225,92 +225,122 @@ class MyClass(object):
 
 ## Exceptions
 
-**_15.What is an error? What is an exception? What types of exceptions are you familiar with?_**
+<details>
+<summary><b><i>15.What is an error? What is an exception? What types of exceptions are you familiar with?</i></b></summary>
 
-- Note that you generally don't need to know the compiling process but knowing where everything comes from and giving complete answers shows that you truly know what you are talking about.
+$\color{green}{\text{Answer}}$
 
-- Generally, every compiling process have a two steps.
+Note that you generally don't need to know the compiling process but knowing where everything comes from and giving complete answers shows that you truly know what you are talking about.
+
+Generally, every compiling process have a two steps.
   - Analysis
   - Code Generation.
 
-- Analysis can be broken into:
-  - 1. Lexical analysis   (Tokenizes source code)
-  - 2. Syntactic analysis (Check whether the tokens are legal or not, tldr, if syntax is correct)
+Analysis can be broken into:
 
-               for i in 'foo'
-                          `^`
-             SyntaxError: invalid syntax
+1. Lexical analysis   (Tokenizes source code)
 
-        We missed ':'
+2. Syntactic analysis (Check whether the tokens are legal or not, tldr, if syntax is correct)
+
+```Python
+for i in 'foo'
+            `^`
+SyntaxError: invalid syntax
+
+We missed ':'
+```
+
+3. Semantic analysis  (Contextual analysis, legal syntax can still trigger errors, did you try to divide by 0, hash a mutable object or use an undeclared function?)
+
+```Python
+1/0
+ZeroDivisionError: division by zero
+```
+
+These three analysis steps are the responsible for error handlings.
+
+The second step would be responsible for errors, mostly syntax errors, the most common error.
+
+The third step would be responsible for Exceptions.
+
+As we have seen, Exceptions are semantic errors, there are many builtin Exceptions:
+
+```Python
+ImportError
+ValueError
+KeyError
+FileNotFoundError
+IndentationError
+IndexError
+...
+```
+
+You can also have user defined Exceptions that have to inherit from the `Exception` class, directly or indirectly.
+
+Basic example:
+
+```Python
+class DividedBy2Error(Exception):
+  def __init__(self, message):
+    self.message = message
 
 
-  - 3. Semantic analysis  (Contextual analysis, legal syntax can still trigger errors, did you try to divide by 0, hash a mutable object or use an undeclared function?)
+def division(dividend,divisor):
+  if divisor == 2:
+    raise DividedBy2Error('I dont want you to divide by 2!')
+  return dividend / divisor
 
-                 1/0
-                ZeroDivisionError: division by zero
+division(100, 2)
+```
 
-- These three analysis steps are the responsible for error handlings.
+</details>
 
-- The second step would be responsible for errors, mostly syntax errors, the most common error.
+<details>
+<summary><b><i>16.Explain Exception Handling and how to use it in Python</i></b></summary>
 
-- The third step would be responsible for Exceptions.
+$\color{green}{\text{Answer}}$
 
-- As we have seen, Exceptions are semantic errors, there are many builtin Exceptions:
+Exceptions: Errors detected during execution are called Exceptions.
 
-        ImportError
-        ValueError
-        KeyError
-        FileNotFoundError
-        IndentationError
-        IndexError
-        ...
+Handling Exception: When an error occurs, or exception as we call it, Python will normally stop and generate an error message.
 
-- You can also have user defined Exceptions that have to inherit from the `Exception` class, directly or indirectly.
+Exceptions can be handled using `try` and `except` statement in python.
 
-    Basic example:
+Example: Following example asks the user for input until a valid integer has been entered.
 
-      class DividedBy2Error(Exception):
-        def __init__(self, message):
-            self.message = message
+If user enter a non-integer value it will raise exception and using except it will catch that exception and ask the user to enter valid integer again.
 
+```Python
+while True:
+   try:
+        a = int(input("please enter an integer value: "))
+        break
+    except ValueError:
+        print("Ops! Please enter a valid integer value.")
+```
 
-      def division(dividend,divisor):
-          if divisor == 2:
-              raise DividedBy2Error('I dont want you to divide by 2!')
-          return dividend / divisor
+</details>
 
-      division(100, 2)
+<details>
+<summary><b><i>17.What is the result of running the following function?
 
-      >>> __main__.DividedBy2Error: I dont want you to divide by 2!
+```Python
+def true_or_false():
+  try:
+    return True
+  finally:
+    return False
+```
 
-**_16.Explain Exception Handling and how to use it in Python_**
+</i></b></summary>
 
-- Exceptions: Errors detected during execution are called Exceptions.
+$\color{green}{\text{Answer}}$
 
-- Handling Exception: When an error occurs, or exception as we call it, Python will normally stop and generate an error message.
+```Python
+False
+```
 
-- Exceptions can be handled using `try` and `except` statement in python.
-
-- Example: Following example asks the user for input until a valid integer has been entered.
-
-- If user enter a non-integer value it will raise exception and using except it will catch that exception and ask the user to enter valid integer again.
-
-- `while True:`
--    `try:`
--        `a = int(input("please enter an integer value: "))`
--        `break`
--    `except ValueError:`
--        `print("Ops! Please enter a valid integer value.")`
-
-**_17.What is the result of running the following function?_**
-
-- `def true_or_false():`
--    `try:`
--        `return True`
--    `finally:`
--        `return False`
-
-- False
+</details>
 
 ## Built-in Functions
 
