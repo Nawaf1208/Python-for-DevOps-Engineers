@@ -351,6 +351,8 @@ False
 - all
 </i></b></summary>
 
+$\color{green}{\text{Answer}}$
+
 1.`repr()`
   - Returns a "printable" string representation of an object that should look like a valid Python expression (used for debugging/logging).
   - Seeing the "true" value of a variable (e.g., distinguishing between a string and its content).
@@ -380,69 +382,119 @@ False
 
 </details>
 
-**_20.What is the difference between repr function and str?_**
+<details>
+<summary><b><i>20.What is the difference between repr function and str?</i></b></summary>
 
-- **Reconstruction**: Ideally, `repr()` should return a string that looks like the code used to create the object (so `eval(repr(obj)) == obj`).
+$\color{green}{\text{Answer}}$
 
-- **Fallback Behavior**: If you don't define `__str__` in a class, Python will use `__repr__` as a backup. However, it does not work the other way around.
+<b>Reconstruction</b>: Ideally, `repr()` should return a string that looks like the code used to create the object (so `eval(repr(obj)) == obj`).
 
-- **Containers**: When you print a list or dictionary, Python uses `repr()` for the items inside, even if you called `str()` on the container itself.
+<b>Fallback Behavior</b>: If you don't define `__str__` in a class, Python will use `__repr__` as a backup. However, it does not work the other way around.
 
-**_21.What is the __call__ method?_**
+<b>Containers</b>: When you print a list or dictionary, Python uses `repr()` for the items inside, even if you called `str()` on the container itself.
 
-- It is used to emulate callable objects. It allows a class instance to be called as a function.
+</details>
 
-  - Example code
-    - `class Foo:`
-    -   `def __init__(self: object) ->  None:`
-    -     `pass`
-    -   `def __call__(self: object) -> None:`
-    -     `print("Called!")`
+<details>
+<summary><b><i>21.What is the __call__ method?</i></b></summary>
 
-    - `f = Foo()`
-    - `f()`
-  - Result:
-    - `Called!`
+$\color{green}{\text{Answer}}$
 
-**_22.Do classes has the __call__ method as well? What for?_**
+It is used to emulate callable objects. It allows a class instance to be called as a function.
 
-- Yes, classes can have a `__call__` method. Defining `__call__` allows an instance of a class to be called like a regular function (using parentheses). It essentially turns an object into a callable.
+Example code:
 
-- **Maintaining State**: To create "functions" that remember data between calls without using global variables.
-- **Functional Programming**: When you need an object to behave like a function (e.g., for decorators or callbacks) but still need the structure of a class.
+```Python
+class Foo:
+  def __init__(self: object) ->  None:
+    pass
 
-**_23.What _ is used for in Python?_**
+  def __call__(self: object) -> None:
+    print("Called!")`
 
-- 1.Translation lookup in i18n
-- 2.Hold the result of the last executed expression or statement in the interactive interpreter.
-- 3.As a general purpose "throwaway" variable name. For example: x, y, _ = get_data() (x and y are used but since we don't care about third variable, we "threw it away").
+f = Foo()
+f()
+ ```
+ 
+Result:
 
-**_24.Explain what is GIL_**
+```Python
+Called!
+```
 
-- Python Global Interpreter Lock (GIL) is a type of process lock which is used by python whenever it deals with processes. Generally, Python only uses only one thread to execute the set of written statements. This means that in python only one thread will be executed at a time.
+</details>
 
-**_25.What is Lambda? How is it used?_**
+<details>
+<summary><b><i>22.Do classes has the __call__ method as well? What for?</i></b></summary>
 
-- A lambda expression is an 'anonymous' function, the difference from a normal defined function using the keyword `def` is the syntax and usage.
+$\color{green}{\text{Answer}}$
 
-- The syntax is:
+Yes, classes can have a `__call__` method. Defining `__call__` allows an instance of a class to be called like a regular function (using parentheses). It essentially turns an object into a callable.
 
-- `lambda[parameters]: [expresion]`
+- <b>Maintaining State</b>: To create "functions" that remember data between calls without using global variables.
 
-- Examples:
-  - A lambda function add 10 with any argument passed.
-    - `x = lambda a: a + 10`
-    - `print(x(10))`
+- <b>Functional Programming</b>: When you need an object to behave like a function (e.g., for decorators or callbacks) but still need the structure of a class.
 
-  - An addition function
-    - `addition = lambda x, y: x + y`
-    - `print(addition(10, 20))`
+</details>
 
-  - Squaring function
-    - `square = lambda x : x ** 2`
-    - `print(square(5))`
+<details>
+<summary><b><i>23.What _ is used for in Python?</i></b></summary>
 
-- Generally it is considered a bad practice under PEP 8 to assign a lambda expresion, they are meant to be used as parameters and inside of other defined functions.
+$\color{green}{\text{Answer}}$
+
+1.Translation lookup in i18n
+
+2.Hold the result of the last executed expression or statement in the interactive interpreter.
+
+3.As a general purpose "throwaway" variable name. For example: x, y, _ = get_data() (x and y are used but since we don't care about third variable, we "threw it away").
+
+</details>
+
+<details>
+<summary><b><i>24.Explain what is GIL</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Python Global Interpreter Lock (GIL) is a type of process lock which is used by python whenever it deals with processes. Generally, Python only uses only one thread to execute the set of written statements. This means that in python only one thread will be executed at a time.
+
+</details>
+
+<details>
+<summary><b><i>25.What is Lambda? How is it used?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+A lambda expression is an 'anonymous' function, the difference from a normal defined function using the keyword `def` is the syntax and usage.
+
+The syntax is:
+
+```Python
+lambda[parameters]: [expresion]
+```
+
+Examples:
+  
+A lambda function add 10 with any argument passed.
+  ```Python
+  x = lambda a: a + 10
+  print(x(10))
+  ```
+
+An addition function
+  ```Python
+  addition = lambda x, y: x + y
+  print(addition(10, 20))
+  ```
+
+Squaring function
+  ```Python
+  square = lambda x : x ** 2
+  print(square(5))
+  ```
+
+Generally it is considered a bad practice under PEP 8 to assign a lambda expresion, they are meant to be used as parameters and inside of other defined functions.
+
+</details>
 
 ## Properties
 
