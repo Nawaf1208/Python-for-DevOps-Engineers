@@ -732,20 +732,29 @@ False
 
 ## Common Algorithms Implementation
 
-**_60.Can you implement "binary search" in Python?_**
+<details>
+<summary><b><i>60.Can you implement "binary search" in Python?</i></b></summary>
 
-- `def binary_search(arr, target):`
--   `low, high = 0, len(arr) - 1`
+$\color{green}{\text{Answer}}$
 
--   `while low <= high:`
--     `mid= (low + high) // 2`
--     `if arr[mid] == target:`
--       `return mid`
--     `elif arr[mid] < target:`
--       `low = mid + 1`
--     `else:`
--       `high = mid - 1`
--     `return -1`
+```Python
+def binary_search(arr, target):
+  low, high = 0, len(arr) - 1
+
+  while low <= high:
+    mid = (low + high) // 2
+        
+    if arr[mid] == target:
+      return mid
+    elif arr[mid] < target:
+      low = mid + 1
+    else:
+      high = mid - 1
+            
+return -1
+```
+
+</details>
 
 ## Files
 
