@@ -172,38 +172,56 @@ def remove_duplicates(sorted_list):
 
 ## OOP
 
-**_13.Explain inheritance and how to use it in Python_**
+<details>
+<summary><b><i>13.Explain inheritance and how to use it in Python</i></b></summary>
 
-- Inheritance is a fundamental concept in Object-Oriented Programming (OOP) where a new class, called the child class (or subclass/derived class), derives properties and methods from an existing class, called the parent class (or superclass/base class).
+$\color{green}{\text{Answer}}$
 
-- This allows for:
-  - 1.**Code Reusability**: Properties and methods defined in the parent class are available in the child class.
-  - 2.**Creating a hierarchy**: Modeling an "is-a" relationship (e.g., a "Dog" is a "Mammal").
+Inheritance is a fundamental concept in Object-Oriented Programming (OOP) where a new class, called the child class (or subclass/derived class), derives properties and methods from an existing class, called the parent class (or superclass/base class).
 
-- To create a child class that inherits from a parent class, you specify the parent class name inside parentheses when defining the child class:
-- `class Animal:`
--   `def __init__(self, name):`
--     `self.name = name`
--   `def speak(self):`
--     `return f"{self.name} makes a sound."
+This allows for:
 
--   `class Dog(Animal):`
--     `def speak(self):
--       `parent_sound = super().speak()
--       `retun f"{self.name} barks! ({parent_sound})"
+1. <b>Code Reusability</b>: Properties and methods defined in the parent class are available in the child class.
 
--    `my_dog = Dog("Buddy")`
--    `print(my_dog.speak())`
-     
-**_14.Explain and demonstrate class attributes & instance attributes_**
+2. <b>Creating a hierarchy</b>: Modeling an "is-a" relationship (e.g., a "Dog" is a "Mammal").
 
-- In the following block of code `x` is a class attribute while `self.y` is a instance attribute
+To create a child class that inherits from a parent class, you specify the parent class name inside parentheses when defining the child class:
 
-- `class MyClass(object):`
--    `x = 1`
--
--    `def __init__(self, y):`
--        `self.y = y`
+```Python
+class Animal:
+  def __init__(self, name):
+    self.name = name
+
+  def speak(self):
+    return f"{self.name} makes a sound."
+
+class Dog(Animal):
+  def speak(self):
+    parent_sound = super().speak()
+    retun f"{self.name} barks! ({parent_sound})"
+
+my_dog = Dog("Buddy")
+print(my_dog.speak())
+```
+
+</details>
+
+<details>
+<summary><b><i>14.Explain and demonstrate class attributes & instance attributes</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+In the following block of code `x` is a class attribute while `self.y` is a instance attribute
+
+```Python
+class MyClass(object):
+  x = 1
+
+  def __init__(self, y):
+    self.y = y
+```
+
+</details>
 
 ## Exceptions
 
