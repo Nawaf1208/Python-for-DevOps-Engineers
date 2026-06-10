@@ -770,16 +770,30 @@ return -1
 
 ## Files
 
-**_61.How to write to a file?_**
+<details>
+<summary><b><i>61.How to write to a file?</i></b></summary>
 
-- `with open('file.txt', 'w') as file:`
--   `file.write("My insightful comment")`
+$\color{green}{\text{Answer}}$
 
-**_62.Sum all the integers in a given file_**
+```Python
+with open('file.txt', 'w') as file:
+    file.write("My insightful comment")
+```
 
-- `def sum_file_integers(filename):`
-  - `with open(filename, 'r') as f:`
-    - `return sum(int(w) for line in f for w in line.split() if w.isdigit())`
+</details>
+
+<details>
+<summary><b><i>62.Sum all the integers in a given file</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+def sum_file_integers(filename):
+  with open(filename, 'r') as f:
+    return sum(int(w) for line in f for w in line.split() if w.isdigit())
+```
+
+</details>
 
 **_63.Print a random line of a given file_**
 
