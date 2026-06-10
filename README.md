@@ -96,41 +96,79 @@ for i in range(n + 1):
 
 ## Classes
 
-**_7.Define a class that does nothing_**
+<details>
+<summary><b><i>7.Define a class that does nothing</i></b></summary>
 
-- `class SomeClass:`
--    `pass`
+$\color{green}{\text{Answer}}$
 
-**_8.True or False? If `c` is an instance of a class, then in `c.x = 1`, `x` is a variable of the value 1_**
+```Python
+class SomeClass:
+  pass
+```
 
-- False. `x` is an attribute in the case `c.x = 1`
+</details>
 
-**_9.True or False? Every object in Python has attributes_**
+<details>
+<summary><b><i>8.True or False? If `c` is an instance of a class, then in `c.x = 1`, `x` is a variable of the value 1</i></b></summary>
 
-- True. You can think on attributes as private dictionaries but instead of accessing them with `[]` or `.get`, they are accessed by using a dot.
+$\color{green}{\text{Answer}}$
 
-**_10.True or False? As opposed to variables, attributes can't contain any Python object, only several selected types_**
+False. `x` is an attribute in the case `c.x = 1`
 
-- False. Like variables, attributes can contain any Python object.
+</details>
+
+<details>
+<summary><b><i>9.True or False? Every object in Python has attributes</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+True. You can think on attributes as private dictionaries but instead of accessing them with `[]` or `.get`, they are accessed by using a dot.
+
+</details>
+
+<details>
+<summary><b><i>10.True or False? As opposed to variables, attributes can't contain any Python object, only several selected types</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+False. Like variables, attributes can contain any Python object.
+
+</details>
 
 ## Strings
 
-**_11.How to convert `"2 0 1 7"` to the list `[2, 0, 1, 7]`?_**
+<details>
+<summary><b><i>11.How to convert `"2 0 1 7"` to the list `[2, 0, 1, 7]`?</i></b></summary>
 
-- `[int(i) for in in "2 0 1 7".split()]`
+$\color{green}{\text{Answer}}$
+
+```Python
+[int(i) for in in "2 0 1 7".split()]
+```
+
+</details>
 
 ## Lists
 
-**_12.How to remove duplicates from a given sorted list?_**
+<details>
+<summary><b><i>12.How to remove duplicates from a given sorted list?</i></b></summary>
 
-- `def remove_duplicates(sorted_list):`
--   `if not sorted_list:`
--      `return []`
--   `unique_elements = [sorted_list[0]]`
--   `for item in sorted_list[1:]:`
--     `if item != unique_elements[-1]:`
--       `unique_elements.append(item)`
--     `return unique_elements`
+$\color{green}{\text{Answer}}$
+
+```Python
+def remove_duplicates(sorted_list):
+  if not sorted_list:
+    return []
+  unique_elements = [sorted_list[0]]
+
+  for item in sorted_list[1:]:
+    if item != unique_elements[-1]:
+      unique_elements.append(item)
+
+  return unique_elements
+```
+
+</details>
 
 ## OOP
 
