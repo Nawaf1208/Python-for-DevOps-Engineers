@@ -682,22 +682,34 @@ False
     - `odd_numbers = [number for number_list in number_lists for number in number_list if number % 2 == 0]`
     - `print(odd_numbers)`
    
-**_53.You have the following list: [{'name': 'Mario', 'food': ['mushrooms', 'goombas']}, {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}] Extract all type of foods. Final output should be: {'mushrooms', 'goombas', 'turtles'}_**
+<details>
+<summary><b><i>53.You have the following list: 
+  
+```Python
+[{'name': 'Mario', 'food': ['mushrooms', 'goombas']}, {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}]
+```
 
-- `brothers_menu =  \`
-- `[{'name': 'Mario', 'food': ['mushrooms', 'goombas']}, {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}]`
+Extract all type of foods. Final output should be:
 
-- `# "Classic" Way`
-- `def get_food(brothers_menu) -> set:`
--   `temp = []`
+```Python
+{'mushrooms', 'goombas', 'turtles'}
+```
 
--   `for brother in brothers_menu:`
--     `for food in brother['food']:`
--       `temp.append(food)`
--   `return set(temp)`
+</i></b></summary>
 
-- `# One liner way (Using list comprehension)`
-- `set([food for bro in x for food in bro['food']])`
+$\color{green}{\text{Answer}}$
+
+```Python
+brothers_menu = [
+    {'name': 'Mario', 'food': ['mushrooms', 'goombas']}, 
+    {'name': 'Luigi', 'food': ['mushrooms', 'turtles']}
+]
+
+unique_food = set([food for bro in brothers_menu for food in bro['food']])
+print(unique_food)
+```
+
+</details>
 
 ## Dictionaries
 
