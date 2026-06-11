@@ -617,110 +617,214 @@ print(f"{sum(li)/len(li):.3f}")
 
 ## Lists
 
-**_33.What is a tuple in Python? What is it used for?_**
+<details>
+<summary><b><i>33.What is a tuple in Python? What is it used for?</i></b></summary>
 
-- A tuple is a built-in data type in Python. It's used for storing multiple items in a single variable.
+$\color{green}{\text{Answer}}$
 
-**_34.List, like a tuple, is also used for storing multiple items. What is then, the difference between a tuple and a list?_**
+A tuple is a built-in data type in Python. It's used for storing multiple items in a single variable.
 
-- List, as opposed to a tuple, is a mutable data type. It means we can modify it and at items to it.
+</details>
 
-**_35.How to add the number 2 to the list `x = [1, 2, 3]`_**
+<details>
+<summary><b><i>34.List, like a tuple, is also used for storing multiple items. What is then, the difference between a tuple and a list?</i></b></summary>
 
-- `x.append(2)`
+$\color{green}{\text{Answer}}$
 
-**_36.How to get the last element of a list?_**
+List, as opposed to a tuple, is a mutable data type. It means we can modify it and at items to it.
 
-- `some_list[-1]`
+</details>
 
-**_37.How to add the items of `[1, 2, 3]` to the list `[4, 5, 6]`?_**
+<details>
+<summary><b><i>35.How to add the number 2 to the list `x = [1, 2, 3]`</i></b></summary>
 
-- `x = [4, 5, 6]` `x.extend([1, 2, 3])`
-- Don't use append unless you would like the list as one item.
+$\color{green}{\text{Answer}}$
 
-**_38.How to remove the first 3 items from a list?_**
+```Python
+x.append(2)
+```
 
-- `my_list[0:3] = []`
+</details>
 
-**_39.How to insert an item to the beginning of a list? What about two items?_**
+<details>
+<summary><b><i>36.How to get the last element of a list?</i></b></summary>
 
-- One item:
-  - `numbers = [1, 2, 3, 4, 5]`
-  - `numbers.insert(0, 0)`
-  - `print(numbers)`
+$\color{green}{\text{Answer}}$
 
-- Multiple items or list:
-  - `numbers_1 = [2, 3, 4, 5]`
-  - `numbers_2 = [0, 1]`
-  - `numbers_1 = numbers_2 + numbers_1`
-  - `print(numbers_1)`
- 
-**_40.How to sort list by the length of items?_**
+```Python
+some_list[-1]
+```
 
-- `sorted_li = sorted(li, key=len)`
+</details>
 
-- Or without creating a new list:
-  - `li.sort(key=len)`
- 
-**_41.Do you know what is the difference between list.sort() and sorted(list)?_**
+<details>
+<summary><b><i>37.How to add the items of `[1, 2, 3]` to the list `[4, 5, 6]`?</i></b></summary>
 
-- `sorted(list)` will return a new list (original list doesn't change)
-- `list.sort()` will return None but the list is change in-place
-- `sorted()` works on any iterable (Dictionaries, Strings, ...)
-- `list.sort()` is faster than sorted(list) in case of Lists
+$\color{green}{\text{Answer}}$
 
-**_42.Convert every string to an integer: `[['1', '2', '3'], ['4', '5', '6']]`_**
+```Python
+x = [4, 5, 6]` `x.extend([1, 2, 3])
+```
 
-- `nested_li = [['1', '2', '3'], ['4', '5', '6']]`
-- `[[int(x) for x in li] for li in nested_li]`
+Don't use append unless you would like the list as one item.
 
-**_43.How to merge two sorted lists into one sorted list?_**
+</details>
 
-- `sorted(li1 + li2)`
+<details>
+<summary><b><i>38.How to remove the first 3 items from a list?</i></b></summary>
 
-- Another way:
+$\color{green}{\text{Answer}}$
 
-- `i, j = 0`
-- `merged_li = []`
+```Python
+my_list[0:3] = []
+```
 
-- `while i < len(li1) and j < len(li2):`
--   `if li1[i] < li2[j]:`
--     `merged_li.append(li1[i])`
--     `i += 1`
--   `else:`
--     `merged_li.append(li2[j])`
--     `j += 1`
+</details>
 
-**_44.How to check if all the elements in a given lists are unique? so [1, 2, 3] is unique but [1, 1, 2, 3] is not unique because 1 exists twice_**
+<details>
+<summary><b><i>39.How to insert an item to the beginning of a list? What about two items?</i></b></summary>
 
-- There are many ways of solving this problem:
-- `# Note: :list and -> bool are just python typings, they are not needed for the correct execution of the algorithm.`
+$\color{green}{\text{Answer}}$
 
-- Taking advantage of sets and len:
-  - `def is_unique(l:list) -> bool:`
-  - `return len(set(l)) == len(l)`
+One item:
+  ```Python
+  numbers = [1, 2, 3, 4, 5]
+  numbers.insert(0, 0)
+  print(numbers)
+  ```
 
-- This one is can be seen used in other programming languages.
-  - `def is_unique2(l:list) -> bool:`
-    - `seen = []`
+Multiple items or list:
+  ```Python
+  numbers_1 = [2, 3, 4, 5]
+  numbers_2 = [0, 1]
+  numbers_1 = numbers_2 + numbers_1
+  print(numbers_1)
+  ```
 
-    - `for i in l:`
-      - `if i in seen:`
-        - `return False`
-      - `seen.append(i)`
-    - `return True`
+</details>
 
-- Here we just count and make sure every element is just repeated once.
-  - `def is_unique3(l:list) -> bool:`
-  -   `for i in l:`
-  -     `if l.count(i) > 1:`
-  -       `return False`
-  -   `return True`
+<details>
+<summary><b><i>40.How to sort list by the length of items?</i></b></summary>
 
-- This one might look more convulated but hey, one liners.
+$\color{green}{\text{Answer}}$
 
-  - `def is_unique4(l:list) -> bool:`
-  -   `return all(map(lambda x: l.count(x) < 2, l))`
+```Python
+sorted_li = sorted(li, key=len)
+```
+
+Or without creating a new list:
+```Python
+li.sort(key=len)
+```
+
+</details>
+
+<details>
+<summary><b><i>41.Do you know what is the difference between list.sort() and sorted(list)?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+`sorted(list)` will return a new list (original list doesn't change)
+
+`list.sort()` will return None but the list is change in-place
+
+`sorted()` works on any iterable (Dictionaries, Strings, ...)
+
+`list.sort()` is faster than sorted(list) in case of Lists
+
+</details>
+
+<details>
+<summary><b><i>42.Convert every string to an integer: 
+  
+```Python
+[['1', '2', '3'], ['4', '5', '6']]
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+nested_li = [['1', '2', '3'], ['4', '5', '6']]
+[[int(x) for x in li] for li in nested_li]
+```
+
+</details>
+
+<details>
+<summary><b><i>43.How to merge two sorted lists into one sorted list?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+sorted(li1 + li2)
+```
+
+Another way:
+
+```Python
+i, j = 0, 0
+merged_li = []
+
+while i < len(li1) and j < len(li2):
+  if li1[i] < li2[j]:
+    merged_li.append(li1[i])
+    i += 1
+  else:
+    merged_li.append(li2[j])
+    j += 1
+```
+
+</details>
+
+<details>
+<summary><b><i>44.How to check if all the elements in a given lists are unique? so [1, 2, 3] is unique but [1, 1, 2, 3] is not unique because 1 exists twice</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+There are many ways of solving this problem:
+
+`# Note: :list and -> bool are just python typings, they are not needed for the correct execution of the algorithm.`
+
+Taking advantage of sets and len:
+
+```Python
+def is_unique(l:list) -> bool:
+  return len(set(l)) == len(l)
+```
+
+This one is can be seen used in other programming languages.
+
+```Python
+def is_unique2(l: list) -> bool:
+  seen = [] 
+
+  for i in l:
+    if i in seen:
+      return False
+    seen.append(i)
+  return True
+```
+
+Here we just count and make sure every element is just repeated once.
+
+```Python
+def is_unique3(l: list) -> bool:
+  for i in l:
+    if l.count(i) > 1: 
+      return False
+  return True
+```
+
+This one might look more convulated but hey, one liners.
+
+```Python
+def is_unique4(l: list) -> bool:
+  return all(l.count(x) < 2 for x in l)
+```
+
+</details>
 
 **_45.You have the following function_**
 - **_def my_func(li = []):_**
