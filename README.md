@@ -1378,32 +1378,63 @@ def sum_file_integers(filename):
 
 ## Linked List
 
-**_107.Can you implement a linked list in Python?_**
+<details>
+<summary><b><i>107.Can you implement a linked list in Python?</i></b></summary>
 
-- The reason we need to implement in the first place, it's because a linked list isn't part of Python standard library.
+$\color{green}{\text{Answer}}$
 
-- To implement a linked list, we have to implement two structures: The linked list itself and a node which is used by the linked list.
+The reason we need to implement in the first place, it's because a linked list isn't part of Python standard library.
 
-**_108.Add a method to the Linked List class to traverse (print every node's data) the linked list_**
+To implement a linked list, we have to implement two structures: The linked list itself and a node which is used by the linked list.
 
-- `def print_list(self): node = self.head while(node): print(node.data) node = node.next`
+</details>
 
-**_109.Write a method to that will return a boolean based on whether there is a loop in a linked list or not_**
+<details>
+<summary><b><i>108.Add a method to the Linked List class to traverse (print every node's data) the linked list</i></b></summary>
 
-- Let's use the Floyd's Cycle-Finding algorithm:
+$\color{green}{\text{Answer}}$
 
-- `def loop_exists(self):`
-  - `one_step_p = self.head`
-  - `two_steps_p = self.head`
-  - `while(one_step_p and two_steps_p and two_steps_p.next):`
-    - `one_step_p = self.head.next`
-    - `two_step_p = self.head.next.next`
-    - `if (one_step_p == two_steps_p):`
-      - `return True`
-  - `return False`
+```Python
+def print_list(self): node = self.head while(node): print(node.data) node = node.next
+```
+
+</details>
+
+<details>
+<summary><b><i>109.Write a method to that will return a boolean based on whether there is a loop in a linked list or not</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Let's use the Floyd's Cycle-Finding algorithm:
+
+```Python
+def loop_exists(self):
+  one_step_p = self.head
+  two_steps_p = self.head
+
+  while one_step_p and two_steps_p and two_steps_p.next:
+    one_step_p = one_step_p.next
+    two_steps_p = two_steps_p.next.next
+
+    if one_step_p == two_steps_p:
+      return True
+            
+  return False
+```
+
+</details>
  
 ## Stack
 
-**_110.Implement Stack in Python_**
+<details>
+<summary><b><i>110.Implement Stack in Python</i></b></summary>
 
-A stack follows the Last-In, First-Out (LIFO) principle and is most efficiently implemented in Python using a list with the `.append()` method to "push" elements and the `.pop()` method to "pop" the top element. For high-performance applications or multi-threaded environments, using `collections.deque` is preferred over a standard list because it provides $O(1)$ time complexity for additions and removals from both ends, whereas a list can suffer from $O(n)$ reallocations. To create a robust stack, you can wrap these operations in a class that provides helper methods like `peek()` to view the top item without removing it, `is_empty()` to check for elements, and `size()` to return the stack's length.
+$\color{green}{\text{Answer}}$
+
+A stack follows the Last-In, First-Out (LIFO) principle and is most efficiently implemented in Python using a list with the `.append()` method to "push" elements and the `.pop()` method to "pop" the top element. 
+
+For high-performance applications or multi-threaded environments, using `collections.deque` is preferred over a standard list because it provides $O(1)$ time complexity for additions and removals from both ends, whereas a list can suffer from $O(n)$ reallocations. 
+
+To create a robust stack, you can wrap these operations in a class that provides helper methods like `peek()` to view the top item without removing it, `is_empty()` to check for elements, and `size()` to return the stack's length.
+
+</details>
