@@ -1345,36 +1345,78 @@ def sum_file_integers(filename):
 
 ## Debugging
 
-**_102.How do you debug Python code?_**
+<details>
+<summary><b><i>102.How do you debug Python code?</i></b></summary>
 
-- `pdb`
+$\color{green}{\text{Answer}}$
 
-**_103.How to check how much time it took to execute a certain script or block of code?_**
+```Python
+pdb
+```
 
-- `time`
+</details>
 
-**_104.What empty return returns?_**
+<details>
+<summary><b><i>103.How to check how much time it took to execute a certain script or block of code?</i></b></summary>
 
-- It returns a None object.
+$\color{green}{\text{Answer}}$
 
-**_105.How to improve the following block of code?_**
-- **_`li = []`_**
-- **_`for i in range(1, 10):`_**
-  - **_`li.append(i)`_**
+```Python
+time
+```
 
-- `[i for i in range(1, 10)]`
+</details>
 
-**_106.Given the following function_**
-- **_`def is_int(num):`_**
-  - **_`if isinstance(num, int):`_**
-    - **_`print('Yes')`_**
-  - **_`else:`_**
-    - **_`print('No')`_**
-- **_What would be the result of is_int(2) and is_int(False)?_**
+<details>
+<summary><b><i>104.What empty return returns?</i></b></summary>
 
-- `is_int(2)` results in: `Yes`
+$\color{green}{\text{Answer}}$
 
-- `is_int(False)` results in: `No`
+It returns a None object.
+
+</details>
+
+<details>
+<summary><b><i>105.How to improve the following block of code?
+
+```Python
+li = []
+for i in range(1, 10):
+  li.append(i)
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+[i for i in range(1, 10)]
+```
+
+</details>
+
+<details>
+<summary><b><i>106.Given the following function
+
+```Python
+def is_int(num):
+  if isinstance(num, int):
+    print('Yes')
+  else:
+    print('No')
+```
+
+What would be the result of `is_int(2)` and `is_int(False)`?
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+`is_int(2)` results in: `Yes`
+
+`is_int(False)` results in: `No`
+
+</details>
 
 ## Linked List
 
