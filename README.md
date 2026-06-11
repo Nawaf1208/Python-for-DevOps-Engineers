@@ -498,56 +498,122 @@ Generally it is considered a bad practice under PEP 8 to assign a lambda expresi
 
 ## Properties
 
-**_26.Are there private variables in Python? How would you make an attribute of a class, private?_**
+<details>
+<summary><b><i>26.Are there private variables in Python? How would you make an attribute of a class, private?</i></b></summary>
 
-- Technically, no. Python does not have strict "private" variables like Java or C++. All attributes are technically accessible.
+$\color{green}{\text{Answer}}$
 
-- However, Python uses naming conventions to signal intent:
-  - 1.**Protected (Internal Use)**: Prefix an attribute with a single underscore `_`
-    - `self._value = 10`
-  - 2.**Private (Name Mangling)**: Prefix an attribute with a double underscore `__`
-    - `self.__secret = 42`
+Technically, no. Python does not have strict "private" variables like Java or C++. All attributes are technically accessible.
+
+However, Python uses naming conventions to signal intent:
+
+1. <b>Protected (Internal Use)</b>: Prefix an attribute with a single underscore `_`
+    ```Python
+    self._value = 10
+    ```
+
+2. <b>Private (Name Mangling)</b>: Prefix an attribute with a double underscore `__`
+    ```Python
+    self.__secret = 42
+    ```
+
+</details>    
    
-**_27.Explain the following:_**
-- 1.**_getter_** -> The Getter retrieves the value of a private attribute.
-  - `@property`
-  - Allows read-access and data formatting before returning.
-- 2.**_setter_** -> The Setter updates the value of an attribute.
-  - `@<attribute_name>.setter`
-  - Enables validation (e.g., ensuring a price isn't negative) before saving data.
-- 3.**_deleter_** -> The Deleter handles the cleanup when an attribute is deleted using `del`
-  - `@<attribute_name>.deleter`
-  - Useful for logging deletions or resetting related values.
+<details>
+<summary><b><i>27.Explain the following:</i></b></summary>
 
-**_28.Explain what is @property_**
+$\color{green}{\text{Answer}}$
 
-- The `@property` decorator is a built-in tool that turns a class method into a "virtual" attribute. It allows you to access a method's return value using simple dot notation (e.g., `obj.price`) instead of calling it like a function (`obj.price()`). This is primarily used to implement encapsulation: you can start with a simple public attribute and later wrap it in logic (like validation or logging) without changing the external API of your class.
+1. <b>getter</b> -> The Getter retrieves the value of a private attribute.
+    ```Python
+    @property
+    ```
+    Allows read-access and data formatting before returning.
 
-**_29.How do you swap values between two variables?_**
+2. <b>setter</b> -> The Setter updates the value of an attribute.
+    ```Python
+    @<attribute_name>.setter
+    ```
+    Enables validation (e.g., ensuring a price isn't negative) before saving data.
 
-- `x, y = y, x`
+3. <b>deleter</b> -> The Deleter handles the cleanup when an attribute is deleted using `del`
+    ```Python
+    @<attribute_name>.deleter
+    ```
+    Useful for logging deletions or resetting related values.
 
-**_30.Explain the following object's magic variables:_**
-- **_dict_** - A magic attribute that stores an object's writable attributes in a dictionary format.
-  - It maps attribute names (keys) to their current values (values).
- 
-**_31.Write a function to return the sum of one or more numbers. The user will decide how many numbers to use_**
+</details>
 
-- First you ask the user for the amount of numbers that will be use. Use a while loop that runs until amount_of_numbers becomes 0 through subtracting amount_of_numbers by one each loop. In the while loop you want ask the user for a number which will be added a variable each time the loop runs.
+<details>
+<summary><b><i>28.Explain what is @property</i></b></summary>
 
-- `def return_sum():`
--   `amount_of_numbers = int(input("How many numbers? "))`
--   `total_sum = 0`
--   `while amount_of_numbers != 0:`
--     `numm = int(input("Input a number. "))`
--     `total_sum += num`
--     `amount_of_numbers -= 1`
--   `return total_sum`
+$\color{green}{\text{Answer}}$
 
-**_32.Print the average of [2, 5, 6]. It should be rounded to 3 decimal places_**
+The `@property` decorator is a built-in tool that turns a class method into a "virtual" attribute. It allows you to access a method's return value using simple dot notation (e.g., `obj.price`) instead of calling it like a function (`obj.price()`). This is primarily used to implement encapsulation: you can start with a simple public attribute and later wrap it in logic (like validation or logging) without changing the external API of your class.
 
-- `li = [2, 5, 6]`
-- `print("{0:.3f}".format(sum(li)/len(li)))`
+</details>
+
+<details>
+<summary><b><i>29.How do you swap values between two variables?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+x, y = y, x
+```
+
+</details>
+
+<details>
+<summary><b><i>30.Explain the following object's magic variables:</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+<b>dict</b> - A magic attribute that stores an object's writable attributes in a dictionary format. It maps attribute names (keys) to their current values (values).
+
+</details>
+
+<details>
+<summary><b><i>31.Write a function to return the sum of one or more numbers. The user will decide how many numbers to use</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+First you ask the user for the amount of numbers that will be use. Use a while loop that runs until amount_of_numbers becomes 0 through subtracting amount_of_numbers by one each loop. In the while loop you want ask the user for a number which will be added a variable each time the loop runs.
+
+```Python
+def return_sum():
+  amount_of_numbers = int(input("How many numbers? "))
+  total_sum = 0
+    
+  while amount_of_numbers != 0:
+    num = int(input("Input a number. "))
+    total_sum += num
+    amount_of_numbers -= 1
+        
+return total_sum
+```
+
+</details>
+
+<details>
+<summary><b><i>32.Print the average of 
+  
+```Python
+[2, 5, 6]
+```
+
+It should be rounded to 3 decimal places
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+li = [2, 5, 6]
+print(f"{sum(li)/len(li):.3f}")
+```
+
+</details>
 
 ## Lists
 
