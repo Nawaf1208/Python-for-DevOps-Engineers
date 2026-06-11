@@ -1349,19 +1349,40 @@ my_list = [8, 2, 1, 10, 5, 4, 3, 9]
 
 $\color{green}{\text{Answer}}$
 
-1. What is the result of `my_list[0:4]`? -> `[8, 2, 1, 10]`
+1. What is the result of `my_list[0:4]`
+   ```Python
+   [8, 2, 1, 10]
+   ```
 
-2. What is the result of `my_list[5:6]`? -> `[4]`
+2. What is the result of `my_list[5:6]`
+   ```Python
+   [4]
+   ```
 
-3. What is the result of `my_list[5:5]`? -> `[]`
+3. What is the result of `my_list[5:5]`
+   ```Python
+   []
+   ```
 
-4. What is the result of `my_list[::-1]`?-> `[9,3,4,5,10,1,2,8]`
+4. What is the result of `my_list[::-1]`
+   ```Python
+   [9,3,4,5,10,1,2,8]
+   ```
 
-5. What is the result of `my_list[::3]`? -> `[8,10,3]`
+5. What is the result of `my_list[::3]`
+   ```Python
+   [8,10,3]
+   ```
 
-6. What is the result of `my_list[2:]`?  -> `[1,10,5,4,3,9]`
+6. What is the result of `my_list[2:]`
+   ```Python
+   [1,10,5,4,3,9]
+   ```
 
-7. What is the result of `my_list[:3]`?  -> `[8,2,1]`
+7. What is the result of `my_list[:3]`
+   ```Python
+   [8,2,1]
+   ```
 
 </details>
 
