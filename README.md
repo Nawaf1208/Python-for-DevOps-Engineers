@@ -826,16 +826,35 @@ def is_unique4(l: list) -> bool:
 
 </details>
 
-**_45.You have the following function_**
-- **_def my_func(li = []):_**
-- **_li.append("hmm")_**
-- **_print(li)_**
+<details>
+<summary><b><i>45.You have the following function
 
-- If we call it 3 times, what would be the result each call?
-  - ['hmm']
-  - ['hmm', 'hmm']
-  - ['hmm', 'hmm', 'hmm']
- 
+```Python
+def my_func(li = []):
+  li.append("hmm")
+  print(li)
+```
+
+If we call it 3 times, what would be the result each call?
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+['hmm']
+```
+
+```Python
+['hmm','hmm']
+```
+
+```Python
+['hmm','hmm','hmm']
+```
+
+</details>
+
 **_46.How to iterate over a list?_**
 
 - `for item in some_list:`
