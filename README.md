@@ -855,74 +855,141 @@ $\color{green}{\text{Answer}}$
 
 </details>
 
-**_46.How to iterate over a list?_**
+<details>
+<summary><b><i>46.How to iterate over a list?</i></b></summary>
 
-- `for item in some_list:`
--   `print(item)`
+$\color{green}{\text{Answer}}$
 
-**_47.How to iterate over a list with indexes?_**
+```Python
+for item in some_list:
+  print(item)
+```
 
-- `for i, item in enumerate(some_list):`
--   `print(i)`
+</details>
 
-**_48.How to start list iteration from 2nd index?_**
+<details>
+<summary><b><i>47.How to iterate over a list with indexes?</i></b></summary>
 
-- Using range like this
+$\color{green}{\text{Answer}}$
 
-  - `for i in range(1, len(some_list)):`
-  -   `some_list[i]`
+```Python
+for i, item in enumerate(some_list):
+  print(i)
+```
 
-- Another way is using slicing
-  - `for i in some_list[1:]:`
+</details>
+
+<details>
+<summary><b><i>48.How to start list iteration from 2nd index?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Using range like this
+
+```Python
+for i in range(1, len(some_list)):
+  some_list[i]
+```
+
+
+Another way is using slicing
+
+```Python
+for i in some_list[1:]:
+```
+
+</details>
  
-**_49.How to iterate over a list in reverse order?_**
+<details>
+<summary><b><i>49.How to iterate over a list in reverse order?</i></b></summary>
 
-- Method 1
-  - `for i in reversed(li):`
-  -   `...`
+$\color{green}{\text{Answer}}$
 
-- Method 2
-  - `n = len(li) - 1`
-  - `while n > 0:`
-    - `...`
-    - `n -= 1`
-   
-**_50.Sort a list of lists by the second item of each nested list_**
+Method 1
 
-- `li = [[1, 4], [2, 1], [3, 9], [4, 2], [4, 5]]`
-- `sorted(li, key=lambda l: l[1])`
+```Python
+for i in reversed(li):
+  ...
+```
 
-- or
+Method 2
 
-- `li.sort(key=lambda l: l[1)`
+```Python
+n = len(li) - 1
+while n > 0:
+  ...
+  n -= 1
+```
 
-**_51.Combine [1, 2, 3] and ['x', 'y', 'z'] so the result is [(1, 'x'), (2, 'y'), (3, 'z')]_**
+</details>
 
-- `nums = [1, 2, 3]`
-- `letters = ['x', 'y', 'z']`
+<details>
+<summary><b><i>50.Sort a list of lists by the second item of each nested list</i></b></summary>
 
-- `list(zip(nums, letters))`
+$\color{green}{\text{Answer}}$
 
-**_52.What is List Comprehension? Is it better than a typical loop? Why? Can you demonstrate how to use it?_**
+```Python
+li = [[1, 4], [2, 1], [3, 9], [4, 2], [4, 5]]
+sorted(li, key=lambda l: l[1])
+```
 
-- List comprehensions provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.
+or
 
-- It's better because they're compact, faster and have better readability.
+```Python
+li.sort(key=lambda l: l[1)
+```
 
-  - For loop:
-    - `number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]`
-    - `odd_numbers = []`
-    - `for number_list in number_lists:`
-    -   `for number in number_list:`
-    -     `ifnumber % 2 == 0:`
-    -       `odd_numbers.append(number)`
-    - `print(odd_numbers)`
+</details>
 
-  - List comprehesion:
-    - `number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]`
-    - `odd_numbers = [number for number_list in number_lists for number in number_list if number % 2 == 0]`
-    - `print(odd_numbers)`
-   
+<details>
+<summary><b><i>51.Combine [1, 2, 3] and ['x', 'y', 'z'] so the result is [(1, 'x'), (2, 'y'), (3, 'z')]</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+nums = [1, 2, 3]
+letters = ['x', 'y', 'z']
+
+print(list(zip(nums, letters)))
+```
+
+</details>
+
+<details>
+<summary><b><i>52.What is List Comprehension? Is it better than a typical loop? Why? Can you demonstrate how to use it?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+List comprehensions provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.
+
+It's better because they're compact, faster and have better readability.
+
+For loop:
+
+```Python
+number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]
+odd_numbers = []
+
+for number_list in number_lists:
+  for number in number_list:
+    if number % 2 != 0:
+      odd_numbers.append(number)
+
+print(odd_numbers)
+```
+
+List comprehesion:
+
+```Python
+number_lists = [[1, 7, 3, 1], [13, 93, 23, 12], [123, 423, 456, 653, 124]]
+
+odd_numbers = [number for number_list in number_lists for number in number_list if number % 2 != 0]
+
+print(odd_numbers)
+```
+
+</details>
+
 <details>
 <summary><b><i>53.You have the following list: 
   
