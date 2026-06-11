@@ -1235,14 +1235,18 @@ def sum_file_integers(filename):
 
 ## Iterators
 
-**_89.What is an iterator?_**
+<details>
+<summary><b><i>89.What is an iterator?</i></b></summary>
 
-- An iterator is an object that allows you to traverse through a collection (like a list) one element at a time. In Python, it is any object that implements the Iterator Protocol.
+$\color{green}{\text{Answer}}$
 
-- The Iterator Protocol
-- An object is an iterator if it has these two methods:
+An iterator is an object that allows you to traverse through a collection (like a list) one element at a time. In Python, it is any object that implements the Iterator Protocol.
+
+An object is an iterator if it has these two methods:
   - `__iter__()`: Returns the iterator object itself.
   - `__next__()`: Returns the next value. Raises StopIteration when no items are left.
+
+</details>
 
 ## Misc
 
@@ -1334,14 +1338,32 @@ def sum_file_integers(filename):
 
 ## Slicing
 
-**_101.For the following slicing exercises, assume you have the following list: my_list = [8, 2, 1, 10, 5, 4, 3, 9]_**
-- **_What is the result of `my_list[0:4]`?_** -> `[8, 2, 1, 10]`
-- **_What is the result of `my_list[5:6]`?_** -> `[4]`
-- **_What is the result of `my_list[5:5]`?_** -> `[]`
-- **_What is the result of `my_list[::-1]`?_**-> `[9,3,4,5,10,1,2,8]`
-- **_What is the result of `my_list[::3]`?_** -> `[8,10,3]`
-- **_What is the result of `my_list[2:]`?_**  -> `[1,10,5,4,3,9]`
-- **_What is the result of `my_list[:3]`?_**  -> `[8,2,1]`
+<details>
+<summary><b><i>101.For the following slicing exercises, assume you have the following list:
+
+```Python
+my_list = [8, 2, 1, 10, 5, 4, 3, 9]
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+1. What is the result of `my_list[0:4]`? -> `[8, 2, 1, 10]`
+
+2. What is the result of `my_list[5:6]`? -> `[4]`
+
+3. What is the result of `my_list[5:5]`? -> `[]`
+
+4. What is the result of `my_list[::-1]`?-> `[9,3,4,5,10,1,2,8]`
+
+5. What is the result of `my_list[::3]`? -> `[8,10,3]`
+
+6. What is the result of `my_list[2:]`?  -> `[1,10,5,4,3,9]`
+
+7. What is the result of `my_list[:3]`?  -> `[8,2,1]`
+
+</details>
 
 ## Debugging
 
