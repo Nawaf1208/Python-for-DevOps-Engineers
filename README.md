@@ -1157,6 +1157,8 @@ $\color{green}{\text{Answer}}$
 print(len(open('file.txt').read().split()))
 ```
 
+</details>
+
 <details>
 <summary><b><i>67.Can you write a function which will print all the file in a given directory? including sub-directories</i></b></summary>
 
