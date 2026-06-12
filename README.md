@@ -1103,44 +1103,89 @@ def sum_file_integers(filename):
 
 </details>
 
-**_63.Print a random line of a given file_**
+<details>
+<summary><b><i>63.Print a random line of a given file</i></b></summary>
 
-- `import random`
-- `with open('file.txt', 'r') as f:`
-  - `lines = f.readlines()`
-  - `print(random.choice(lines).strip())`
+$\color{green}{\text{Answer}}$
+
+```Python
+import random
+
+with open('file.txt', 'r') as f:
+  lines = f.readlines()
+
+if lines: 
+  print(random.choice(lines).strip())
+else:
+  print("The file is empty, nothing to choose from!")
+```
+
+</details>
  
-**_64.Print every 3rd line of a given file_**
+<details>
+<summary><b><i>64.Print every 3rd line of a given file</i></b></summary>
 
-- `from itertools import islice`
-- `with open('file.txt', 'r') as f:`
-  - `for line in islice(f, 2, None, 3):`
-    - `print(line.strip())`
-   
-**_65.Print the number of lines in a given file_**
+$\color{green}{\text{Answer}}$
 
-- `with open('file.txt', 'r') as f:`
-  - `print(len(f.readlines()))`
- 
-**_66.Print the number of of words in a given file_**
+```Python
+from itertools import islice
+  with open('file.txt', 'r') as f:
+    for line in islice(f, 2, None, 3):
+      print(line.strip())
+```
 
-- `print(len(open('file.txt').read().split()))`
+</details>
 
-**_67.Can you write a function which will print all the file in a given directory? including sub-directories_**
+<details>
+<summary><b><i>65.Print the number of lines in a given file</i></b></summary>
 
-- `from pathlib import Path`
-- `def print_files(directory):`
-  - `for path in Path(directory).rglob('*'):`
-    - `if path.is_file():`
-      - `print(path)`
+$\color{green}{\text{Answer}}$
 
-- `print_files('your_directory_path')`
+```Python
+with open('file.txt', 'r') as f:
+  print(len(f.readlines()))
+```
 
-**_68.Write a dictionary (variable) to a file_**
+</details>
 
-- `import json`
-- `with open('file.json', 'w') as f:`
-  - `f.write(json.dumps(dict_var))`
+<details>
+<summary><b><i>66.Print the number of of words in a given file</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+print(len(open('file.txt').read().split()))
+```
+
+<details>
+<summary><b><i>67.Can you write a function which will print all the file in a given directory? including sub-directories</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+from pathlib import Path
+def print_files(directory):
+  for path in Path(directory).rglob('*'):
+    if path.is_file():
+      print(path)
+
+print_files('your_directory_path')
+```
+
+</details>
+
+<details>
+<summary><b><i>68.Write a dictionary (variable) to a file</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+import json
+with open('file.json', 'w') as f:
+  f.write(json.dumps(dict_var))
+```
+
+</details>
 
 ## OS
 
