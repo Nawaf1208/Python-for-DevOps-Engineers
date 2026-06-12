@@ -1244,20 +1244,32 @@ with open('file.json', 'w') as f:
 
 ## Regex
 
-**_75.How do you perform regular expressions related operations in Python? (match patterns, substitute strings, etc.)_**
+<details>
+<summary><b><i>75.How do you perform regular expressions related operations in Python? (match patterns, substitute strings, etc.)</i></b></summary>
 
-- Using the re module
+$\color{green}{\text{Answer}}$
 
-**_76.How to find all the IP addresses in a variable? How to find them in a file?_**
+Using the re module
 
-- `import re`
+</details>
 
-- `ip_pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'`
-- `found_ips = []`
+<details>
+<summary><b><i>76.How to find all the IP addresses in a variable? How to find them in a file?</i></b></summary>
 
-- `with open('server.log', 'r') as file:`
-  - `for line in file:`
-    - `found_ips.extend(re.findall(ip_pattern, line))`
+$\color{green}{\text{Answer}}$
+
+```Python
+import re
+
+ip_pattern = re.compile(r'\b(?:\d{1,3}\.){3}\d{1,3}\b')
+found_ips = []
+
+with open('server.log', 'r') as file:
+  for line in file:
+    found_ips.extend(ip_pattern.findall(line))
+```
+
+</details>
 
 ## Strings
 
