@@ -1611,6 +1611,8 @@ $\color{green}{\text{Answer}}$
 
 You use `yield` when you need to process large datasets or streams of data that are too big to fit in memory. It is the best choice for "lazy" data generation, such as reading a massive log file line-by-line, calculating an infinite sequence, or performing complex data transformations where you only need one item at a time. This approach significantly reduces RAM usage and can improve performance by starting to process data before the entire collection is fully loaded or calculated.
 
+</details>
+
 <details>
 <summary><b><i>95.Explain the following types of methods and how to use them:
 
@@ -1640,6 +1642,8 @@ nums = [1, 2, 3]
 nums.reverse()
 print(nums)
 ```
+
+</details>
 
 <details>
 <summary><b><i>97.How to combine list of strings into one string with spaces between the strings</i></b></summary>
