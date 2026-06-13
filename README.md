@@ -1602,6 +1602,8 @@ $\color{green}{\text{Answer}}$
 
 No output
 
+</details>
+
 <details>
 <summary><b><i>94.What is `yield`? When would you use it?</i></b></summary>
 
