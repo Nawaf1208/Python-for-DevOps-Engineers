@@ -1268,56 +1268,117 @@ with open('file.json', 'w') as f:
 
 ## OS
 
-**_69.How to print current working directory?_**
+<details>
+<summary><b><i>69.How to print current working directory?</i></b></summary>
 
-- `import os`
-- `print(os.getcwd())`
+$\color{green}{\text{Answer}}$
 
-**_70.Given the path `/dir1/dir2/file1` print the file name (file1)_**
+```Python
+import os
 
-- `import os`
+print(os.getcwd())
+```
 
-- `print(os.path.basename('/dir1/dir2/file1'))`
+</details>
 
-# Another way
-- `print(os.path.split('/dir1/dir2/file1')[1])`
+<details>
+<summary><b><i>70.Given the path `/dir1/dir2/file1` print the file name (file1)</i></b></summary>
 
-**_71.Given the path `/dir1/dir2/file1`_**
-- **_1. Print the path without the file name (/dir1/dir2)_**
-- **_2. Print the name of the directory where the file resides (dir2)_**
+$\color{green}{\text{Answer}}$
 
-- `import os`
-- ## Part 1.
-- # os.path.dirname gives path removing the end component
-- `dirpath = os.path.dirname('/dir1/dir2/file1')`
-- `print(dirpath)`
+```Python
+import os
 
-- ## Part 2.
-- `print(os.path.basename(dirpath))`
+print(os.path.basename('/dir1/dir2/file1'))
+```
 
-**_72.How do you execute shell commands using Python?_**
+Another way:
 
-- `import subprocess`
+```Python
+print(os.path.split('/dir1/dir2/file1')[1])
+```
 
-- # Simple command
-- `subprocess.run(["ls", "-l"])`
+</details>
 
-- # Capture output to a variable
-- `result = subprocess.run(["echo", "Hello World"], capture_output=True, text=True)`
-- `print(result.stdout)`
+<details>
+<summary><b><i>71.Given the path 
+  
+```Python
+/dir1/dir2/file1
+```
 
-**_73.How do you join path components? for example `/home` and `/luig` will result in `/home/luigi`_**
+1.Print the path without the file name
 
-- `from pathlib import Path`
+   ```Python
+   (/dir1/dir2)
+   ```
 
-- `path = Path("/home") / "luigi"`
-- `print(path)`
+2.Print the name of the directory where the file resides
 
-**_74.How do you remove non-empty directory?_**
+   ```Python
+   (dir2)
+   ```
 
-- `import shutil`
+</i></b></summary>
 
-- `shutil.rmtree('/path/to/directory')`
+$\color{green}{\text{Answer}}$
+
+1. ```Python
+   import os
+   dirpath = os.path.dirname('/dir1/dir2/file1')
+   print(dirpath)
+   ```
+
+2. ```Python
+   print(os.path.basename(dirpath))
+   ```
+
+</details>
+
+<details>
+<summary><b><i>72.How do you execute shell commands using Python?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+import subprocess
+
+# Simple command
+subprocess.run(["ls", "-l"])
+
+# Capture output to a variable
+result = subprocess.run(["echo", "Hello World"], capture_output=True, text=True)
+print(result.stdout)
+```
+
+</details>
+
+<details>
+<summary><b><i>73.How do you join path components? for example `/home` and `/luig` will result in `/home/luigi`</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+from pathlib import Path
+
+path = Path("/home") / "luigi"
+print(path)
+```
+
+</details>
+
+<details>
+<summary><b><i>74.How do you remove non-empty directory?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+import shutil
+
+shutil.rmtree('/path/to/directory')
+```
+
+</details>
 
 ## Regex
 
