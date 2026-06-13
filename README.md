@@ -1021,34 +1021,111 @@ print(unique_food)
 
 ## Dictionaries
 
-**_54.How to create a dictionary?_**
+<details>
+<summary><b><i>54.How to create a dictionary?</i></b></summary>
 
-- `my_dict = dict(x=1, y=2) OR my_dict = {'x': 1, 'y': 2} OR my_dict = dict([('x', 1), ('y', 2)])`
+$\color{green}{\text{Answer}}$
 
-**_55.How to remove a key from a dictionary?_**
+1. The Literal Syntax:
+```Python 
+my_dict = dict(x=1, y=2)
+```
 
-- `del my_dict['some_key'] you can also use `my_dict.pop('some_key')` which returns the value of the key.`
+OR 
 
-**_56.How to sort a dictionary by values?_**
+2. The Keyword Constructor:
 
-- `{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}`
+```Python
+my_dict = {'x': 1, 'y': 2}
+```
 
-**_57.How to sort a dictionary by keys?_**
+OR 
 
-- `dict(sorted(some_dictionary.items()))`
+3. The Iterable Constructor:
 
-**_58.How to merge two dictionaries?_**
+```Python
+my_dict = dict([('x', 1), ('y', 2)])
+```
 
-- `some_dict1.update(some_dict2)`
+</details>
 
-**_59.Convert the string "a.b.c" to the dictionary {'a': {'b': {'c': 1}}}_**
+<details>
+<summary><b><i>55.How to remove a key from a dictionary?</i></b></summary>
 
-- `output = {}`
-- `string = "a.b.c"`
-- `path = string.split('.')`
-- `target = reduce(lambda d, k: d.setdefault(k, {}), path[:-1], output)`
-- `target[path[-1]] = 1`
-- `print(output)`
+$\color{green}{\text{Answer}}$
+
+```Python
+del my_dict['some_key']
+```
+
+You can also use 
+
+```Python
+my_dict.pop('some_key')
+```
+
+which returns the value of the key.
+
+</details>
+
+<details>
+<summary><b><i>56.How to sort a dictionary by values?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
+```
+
+</details>
+
+<details>
+<summary><b><i>57.How to sort a dictionary by keys?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+dict(sorted(some_dictionary.items()))
+```
+
+</details>
+
+<details>
+<summary><b><i>58.How to merge two dictionaries?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+some_dict1.update(some_dict2)
+```
+
+</details>
+
+<details>
+<summary><b><i>59.Convert the string "a.b.c" to the dictionary 
+  
+```Python
+{'a': {'b': {'c': 1}}}
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+from functools import reduce
+
+output = {}
+string = "a.b.c"
+path = string.split('.')
+
+target = reduce(lambda d, k: d.setdefault(k, {}), path[:-1], output)
+target[path[-1]] = 1
+
+print(output)
+```
+
+</details>
 
 ## Common Algorithms Implementation
 
