@@ -1533,91 +1533,166 @@ An object is an iterator if it has these two methods:
 
 ## Misc
 
-**_90.Explain data serialization and how do you perform it with Python_**
+<details>
+<summary><b><i>90.Explain data serialization and how do you perform it with Python</i></b></summary>
 
-- Data serialization is the process of converting complex objects (like lists, dictionaries, or classes) into a byte stream or string format that can be easily stored in a file or transmitted over a network. Deserialization is the reverse process.
+$\color{green}{\text{Answer}}$
 
-- JSON
-  - `import json`
-  - `data = {"id": 1, "name": "Luigi"}`
-  - `serialized = json.dumps(data)`
+Data serialization is the process of converting complex objects (like lists, dictionaries, or classes) into a byte stream or string format that can be easily stored in a file or transmitted over a network. Deserialization is the reverse process.
 
-- Pickle
-  - `import pickle`
-  - `serialized = pickle.dumps(data)`
- 
-**_91.How do you handle argument parsing in Python?_**
+JSON
 
-- `import argparse`
+```Python
+import json
+data = {"id": 1, "name": "Luigi"}
+serialized = json.dumps(data)
+```
 
-- `parser = argparse.ArgumentParser(description="A simple script")`
+Pickle
 
-- `parser.add_argument("name", help="Your name")`  
-- `parser.add_argument("-a", "--age", type=int, help="Age")`
+```Python
+import pickle
+serialized = pickle.dumps(data)
+```
 
-- `args = parser.parse_args()`
+</details>
 
-- `print(f"Hello {args.name}, you are {args.age}")`
+<details>
+<summary><b><i>91.How do you handle argument parsing in Python?</i></b></summary>
 
-**_92.What is a generator? Why using generators?_**
+$\color{green}{\text{Answer}}$
 
-- A generator is a special type of iterator defined by a function that uses the `yield` keyword instead of `return`. When called, it doesn't execute the code immediately; instead, it returns a generator object that produces values one at a time on demand. Each time `yield` is reached, the function's state is "frozen," allowing it to resume exactly where it left off during the next iteration.
+```Python
+import argparse
 
-- The primary reason to use generators is memory efficiency. Unlike lists, which store all elements in RAM simultaneously, generators use lazy evaluation, calculating each item only when requested. This makes them ideal for processing massive datasets, reading large files, or representing infinite sequences where storing the entire collection would be impossible.
+parser = argparse.ArgumentParser(description="A simple script")
 
-**_93.What would be the output of the following block?_**
-**_- `for i in range(3, 3):`_**
-  **_- `print(i)`_**
+parser.add_argument("name", help="Your name")
+parser.add_argument("-a", "--age", type=int, help="Age")
 
-- No output
+args = parser.parse_args()
 
-**_94.What is `yield`? When would you use it?_**
+print(f"Hello {args.name}, you are {args.age}")
+```
 
-- `yield` is a keyword used in Python functions to turn them into generators. Unlike `return`, which terminates a function and sends back a final value, `yield` pauses the function’s execution, saves its local state (variable values and instruction pointer), and emits a value to the caller. When the generator is iterated again, execution resumes immediately after the `yield` statement as if it had never stopped.
+</details>
 
-- You use `yield` when you need to process large datasets or streams of data that are too big to fit in memory. It is the best choice for "lazy" data generation, such as reading a massive log file line-by-line, calculating an infinite sequence, or performing complex data transformations where you only need one item at a time. This approach significantly reduces RAM usage and can improve performance by starting to process data before the entire collection is fully loaded or calculated.
+<details>
+<summary><b><i>92.What is a generator? Why using generators?</i></b></summary>
 
-**_95.Explain the following types of methods and how to use them:_**
-- **_Static method_**
-- **_Class method_**
-- **_instance method_**
+$\color{green}{\text{Answer}}$
 
-- Static methods are defined with the `@staticmethod` decorator and do not take a mandatory first argument (neither `self` nor `cls`). They behave like regular functions but reside within the class's namespace for organizational purposes. You use them when a task is logically related to the class but doesn't need to access or modify any class or instance data, such as a utility function that performs a specific calculation or validates a string.
+A generator is a special type of iterator defined by a function that uses the `yield` keyword instead of `return`. When called, it doesn't execute the code immediately; instead, it returns a generator object that produces values one at a time on demand. Each time `yield` is reached, the function's state is "frozen," allowing it to resume exactly where it left off during the next iteration.
 
-- Class methods are marked with the `@classmethod` decorator and take `cls` as the first argument, pointing to the class itself rather than an instance. Because they have access to the class state, they can modify variables that apply to all instances of that class. They are most commonly used as "factory methods" to create class instances using different input formats or to maintain state that is shared across every object created from that class.
+The primary reason to use generators is memory efficiency. Unlike lists, which store all elements in RAM simultaneously, generators use lazy evaluation, calculating each item only when requested. This makes them ideal for processing massive datasets, reading large files, or representing infinite sequences where storing the entire collection would be impossible.
 
-- Instance methods are the most common type. They take `self` as the first argument, which points to the specific object instance. These methods can freely access and modify both instance-specific data (attributes) and class-level data. You use them for behaviors that require knowledge of a specific object's state, such as updating a user's profile or calculating a result based on an object's unique properties.
+</details>
 
-**_96.How to reverse a list?_**
+<details>
+<summary><b><i>93.What would be the output of the following block?
 
-- `nums = [1, 2, 3]`
-- `nums.reverse()`
-- `print(nums)`
+```Python
+for i in range(3, 3):
+  print(i)
+```
 
-**_97.How to combine list of strings into one string with spaces between the strings_**
+</i></b></summary>
 
-- `words = ["Python", "is", "awesome"]`
+$\color{green}{\text{Answer}}$
 
-- `result = " ".join(words)`
+No output
 
-- `print(result)`
+<details>
+<summary><b><i>94.What is `yield`? When would you use it?</i></b></summary>
 
-**_100.You have the following list of nested lists: [['Mario', 90], ['Geralt', 82], ['Gordon', 88]] How to sort the list by the numbers in the nested lists?_**
+$\color{green}{\text{Answer}}$
 
-- One way is:
+`yield` is a keyword used in Python functions to turn them into generators. Unlike `return`, which terminates a function and sends back a final value, `yield` pauses the function’s execution, saves its local state (variable values and instruction pointer), and emits a value to the caller. When the generator is iterated again, execution resumes immediately after the `yield` statement as if it had never stopped.
 
-- `the_list.sort(key=lambda x: x[1])`
+You use `yield` when you need to process large datasets or streams of data that are too big to fit in memory. It is the best choice for "lazy" data generation, such as reading a massive log file line-by-line, calculating an infinite sequence, or performing complex data transformations where you only need one item at a time. This approach significantly reduces RAM usage and can improve performance by starting to process data before the entire collection is fully loaded or calculated.
 
-**_101.Explain the following:_**
-- **_`zip()`_**
-- **_`map()`_**
-- **_`filter()`_**
+<details>
+<summary><b><i>95.Explain the following types of methods and how to use them:
 
-- The `zip()` function takes multiple iterables (like lists or tuples) and aggregates them into a single iterator of tuples. It pairs the first elements of each input together, then the second, and so on, stopping as soon as the shortest iterable is exhausted. This is commonly used when you need to iterate through two related lists simultaneously, such as matching a list of usernames with a list of user IDs.
+- Static method
+- Class method
+- instance method
 
-- The `map()` function applies a specific function to every item in an iterable and returns an iterator of the results. Instead of writing a manual `for` loop to transform data, you can use `map` to perform operations like converting a list of strings to integers or squaring every number in a sequence. It is a cornerstone of functional programming in Python, emphasizing concise and readable data transformation.
+</i></b></summary>
 
-- The `filter()` function constructs an iterator from elements of an iterable for which a specific function returns `True`. It acts as a gatekeeper, allowing you to extract only the data that meets a certain criteria—such as filtering out odd numbers from a list or removing empty strings from a collection of text. Like `map` and `zip`, it uses lazy evaluation, meaning it only processes items as you loop through them, saving memory.
+$\color{green}{\text{Answer}}$
+
+Static methods are defined with the `@staticmethod` decorator and do not take a mandatory first argument (neither `self` nor `cls`). They behave like regular functions but reside within the class's namespace for organizational purposes. You use them when a task is logically related to the class but doesn't need to access or modify any class or instance data, such as a utility function that performs a specific calculation or validates a string.
+
+Class methods are marked with the `@classmethod` decorator and take `cls` as the first argument, pointing to the class itself rather than an instance. Because they have access to the class state, they can modify variables that apply to all instances of that class. They are most commonly used as "factory methods" to create class instances using different input formats or to maintain state that is shared across every object created from that class.
+
+Instance methods are the most common type. They take `self` as the first argument, which points to the specific object instance. These methods can freely access and modify both instance-specific data (attributes) and class-level data. You use them for behaviors that require knowledge of a specific object's state, such as updating a user's profile or calculating a result based on an object's unique properties.
+
+</details>
+
+<details>
+<summary><b><i>96.How to reverse a list?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+nums = [1, 2, 3]
+nums.reverse()
+print(nums)
+```
+
+<details>
+<summary><b><i>97.How to combine list of strings into one string with spaces between the strings</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+words = ["Python", "is", "awesome"]
+
+result = " ".join(words)
+
+print(result)
+```
+
+</details>
+
+<details>
+<summary><b><i>100.You have the following list of nested lists: 
+  
+```Python
+[['Mario', 90], ['Geralt', 82], ['Gordon', 88]]
+```
+
+How to sort the list by the numbers in the nested lists?
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+the_list.sort(key=lambda x: x[1])
+```
+
+</details>
+
+<details>
+<summary><b><i>101.Explain the following:
+  
+- zip()
+- map()
+- filter()
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+The `zip()` function takes multiple iterables (like lists or tuples) and aggregates them into a single iterator of tuples. It pairs the first elements of each input together, then the second, and so on, stopping as soon as the shortest iterable is exhausted. This is commonly used when you need to iterate through two related lists simultaneously, such as matching a list of usernames with a list of user IDs.
+
+The `map()` function applies a specific function to every item in an iterable and returns an iterator of the results. Instead of writing a manual `for` loop to transform data, you can use `map` to perform operations like converting a list of strings to integers or squaring every number in a sequence. It is a cornerstone of functional programming in Python, emphasizing concise and readable data transformation.
+
+The `filter()` function constructs an iterator from elements of an iterable for which a specific function returns `True`. It acts as a gatekeeper, allowing you to extract only the data that meets a certain criteria—such as filtering out odd numbers from a list or removing empty strings from a collection of text. Like `map` and `zip`, it uses lazy evaluation, meaning it only processes items as you loop through them, saving memory.
+
+</details>
 
 ## Slicing
 
