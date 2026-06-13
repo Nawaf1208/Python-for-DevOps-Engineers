@@ -1411,110 +1411,220 @@ with open('server.log', 'r') as file:
 
 ## Strings
 
-**_77.Find the first repeated character in a string_**
+<details>
+<summary><b><i>77.Find the first repeated character in a string</i></b></summary>
 
-- While you iterate through the characters, store them in a dictionary and check for every character whether it's already in the dictionary.
+$\color{green}{\text{Answer}}$
 
-- `def firstRepeatedCharacter(str):`
-  - `chars = {}`
-  - `for ch in str:`
-    - `if ch in chars:`
-      - `return ch`
-    - `else:`
-      - `chars[ch] = 0`
+While you iterate through the characters, store them in a dictionary and check for every character whether it's already in the dictionary.
+
+```Python
+def first_repeated_character(text):
+  chars={}    
+
+    for ch in text:
+      if ch in chars:
+        return ch
+      else:
+        chars[ch] = 0
+```
+
+</details>
      
-**_78.How to extract the unique characters from a string? for example given the input "itssssssameeeemarioooooo" the output will be "mrtisaoe"_**
+<details>
+<summary><b><i>78.How to extract the unique characters from a string? for example given the input "itssssssameeeemarioooooo" the output will be "mrtisaoe"</i></b></summary>
 
-- `x = "itssssssameeeemarioooooo"`
-- `y = ''.join(set(x))`
+$\color{green}{\text{Answer}}$
 
-**_79.Find all the permutations of a given string_**
+```Python
+x = "itssssssameeeemarioooooo"
+y = ''.join(set(x))
+```
 
-- `def permute_string(string):`
+</details>
 
-  - `if len(string) == 1:`
-    - `return [string]`
+<details>
+<summary><b><i>79.Find all the permutations of a given string
 
-  - `permutations = []`
-  - `for i in range(len(string)):`
-    - `swaps = permute_string(string[:i] + string[(i+1):])`
-    - `for swap in swaps:`
-      - `permutations.append(string[i] + swap)`
+```Python
+def permute_string(string):
+  if len(string) <= 1:
+    return [string]
 
-  - `return permutations`
+  permutations = []
+  for i in range(len(string)):
+    swaps = permute_string(string[:i] + string[(i+1):])
+    for swap in swaps:
+      permutations.append(string[i] + swap)
 
-- `print(permute_string("abc"))`
+  return permutations
+```
 
-**_80.How to check if a string contains a sub string?_**
+</i></b></summary>
 
-- `text = "Hello, Luigi!"`
+$\color{green}{\text{Answer}}$
 
-- `if "Luigi" in text:`
-  - `print("Found it!")`
+```Python
+print(permute_string("abc"))
+```
+
+</details>
+
+<details>
+<summary><b><i>80.How to check if a string contains a sub string?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+text = "Hello, Luigi!"
+
+if "Luigi" in text:
+  print("Found it!")
+```
+
+</details>
  
-**_81.Find the frequency of each character in string_**
+<details>
+<summary><b><i>81.Find the frequency of each character in string</i></b></summary>
 
-- `from collections import Counter`
+$\color{green}{\text{Answer}}$
 
-- `text = "banana"`
-- `frequency = Counter(text)`
+```Python
+from collections import Counter
 
-- `print(frequency)`
+text = "banana"
+frequency = Counter(text)
 
-**_82.Count the number of spaces in a string_**
+print(frequency)
+```
 
-- You can use the "count" method like this:
-  - `ImAString.count(" ")`
- 
-**_83.Given a string, find the N most repeated words_**
+</details>
 
-- `import re`
-- `from collections import Counter`
+<details>
+<summary><b><i>82.Count the number of spaces in a string</i></b></summary>
 
-- `text = "apple banana apple cherry banana apple"`
-- `n = 2`
+$\color{green}{\text{Answer}}$
 
-- `words = re.findall(r'\w+', text.lower())`
+You can use the "count" method like this:
 
-- `most_common = Counter(words).most_common(n)`
+```Python
+ImAString.count(" ")
+```
 
-- `print(most_common)`
+</details>
 
-**_84.Given the string (which represents a matrix) "1 2 3\n4 5 6\n7 8 9" create rows and colums variables (should contain integers, not strings)_**
+<details>
+<summary><b><i>83.Given a string, find the N most repeated words</i></b></summary>
 
-- `matrix_str = "1 2 3\n4 5 6\n7 8 9"`
+$\color{green}{\text{Answer}}$
 
-- `rows = [[int(x) for x in line.split()] for line in matrix_str.split('\n')]`
+```Python
+import re
+from collections import Counter
 
-- `cols = list(zip(*rows))`
+text = "apple banana apple cherry banana apple"
+n = 2
 
-- `print(f"Rows: {rows}")`
-- `print(f"Cols: {cols}")`
+words = re.findall(r'\w+', text.lower())
 
-**_85.What is the result of each of the following?_**
-- **_`', '.join(["One", "Two", "Three"])`_**
-- **_`" ".join("welladsadgadoneadsadga".split("adsadga")[:2])`_**
-- **_`"".join(["c", "t", "o", "a", "o", "q", "l"])[0::2]`_**
+most_common = Counter(words).most_common(n)
 
-- `'One, Two, Three'`
-- `'well done'`
-- `'cool'`
+print(most_common)
+```
 
-**_86.If `x = "pizza"`, what would be the result of `x[::-1]`?_**
+</details>
 
-- It will reverse the string, so x would be equal to `azzip`.
+<details>
+<summary><b><i>84.Given the string (which represents a matrix) "1 2 3\n4 5 6\n7 8 9" create rows and colums variables (should contain integers, not strings)</i></b></summary>
 
-**_87.Reverse each word in a string (while keeping the order)_**
+$\color{green}{\text{Answer}}$
 
-- `text = "Hello Luigi"`
+```Python
+matrix_str = "1 2 3\n4 5 6\n7 8 9"
 
-- `result = " ".join(word[::-1] for word in text.split())`
+rows = [[int(x) for x in line.split()] for line in matrix_str.split('\n')]
 
-- `print(result)`
+cols = list(zip(*rows))
 
-**_88.What is the output of the following code: `"".join(["a", "h", "m", "a", "h", "a", "n", "q", "r", "l", "o", "i", "f", "o", "o"])[2::3]`_**
+print(f"Rows: {rows}")
+print(f"Cols: {cols}")
+```
 
-- mario
+</details>
+
+<details>
+<summary><b><i>85.What is the result of each of the following?
+
+```Python
+', '.join(["One", "Two", "Three"])
+```
+
+```
+" ".join("welladsadgadoneadsadga".split("adsadga")[:2])
+```
+
+```Python
+"".join(["c", "t", "o", "a", "o", "q", "l"])[0::2]
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+'One, Two, Three'
+```
+
+```Python
+'well done'
+```
+
+```Python
+'cool'
+```
+
+</details>
+
+<details>
+<summary><b><i>86.If `x = "pizza"`, what would be the result of `x[::-1]`?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+It will reverse the string, so x would be equal to `azzip`.
+
+</details>
+
+<details>
+<summary><b><i>87.Reverse each word in a string (while keeping the order)</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+text = "Hello Luigi"
+
+result = " ".join(word[::-1] for word in text.split())
+
+print(result)
+```
+
+</details>
+
+<details>
+<summary><b><i>88.What is the output of the following code: 
+  
+```Python
+"".join(["a", "h", "m", "a", "h", "a", "n", "q", "r", "l", "o", "i", "f", "o", "o"])[2::3]
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Python
+mario
+```
+
+</details>
 
 ## Iterators
 
